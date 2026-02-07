@@ -1,13 +1,17 @@
 package com.ican.saf.ui.dsahboard.bff.config;
 
 import com.ican.saf.ui.dsahboard.bff.modal.UsernamePasswordAuthenticationModuleToken;
+import com.ican.saf.ui.dsahboard.bff.modal.UsernamePasswordOnlyAuthenticationToken;
+import com.ican.saf.ui.dsahboard.bff.security.ValidationType;
 import com.ican.saf.ui.dsahboard.bff.web.AuthService;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -26,6 +30,12 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 @EnableWebSecurity
 @EnableMethodSecurity
 public class SecurityConfiguration {
+
+    @Value("${crypto.error_code_otp_required}")
+    private String errorCodeOTPRequired;
+
+    @Value("${logi.dashboard.apiKey}")
+    private String apiKey;
 
     private final AuthService authService;
 
@@ -70,7 +80,22 @@ public class SecurityConfiguration {
         HttpSession session = attr.getRequest().getSession(true);
 
         var routeTransformer = moduleToken.getRouteTransformer();
-        var authResponse = authService.call
+        var authResponse = authService.callLoginService(userName, password, "password",
+                authService.getValidationType(authentication, moduleToken.getRequest()));
+
+        if(authResponse == null) throw new AuthenticationServiceException("Failure during system entry. Please try again.");
+
+        if(authResponse.getError() != null){
+            throw new AuthenticationServiceException(authResponse.getError());
+        }
+
+        if(authResponse.getError() != null){
+            if(errorCodeOTPRequired.equals(authResponse.getError())){
+                if(authentication instanceof UsernamePasswordOnlyAuthenticationToken){
+                    var otpResponse = authService.sendOtp()
+                }
+            }
+        }
     }
 
 }
