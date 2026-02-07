@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8761/config
+      fail-fast: true
+      label: master
+
+jasypt:
+  encryptor:
+    algorithm: PBEWithMD5AndDES
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator
