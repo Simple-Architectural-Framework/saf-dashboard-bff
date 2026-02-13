@@ -3,30 +3,30 @@ package com.ican.saf.ui.dsahboard.bff.gateway;
 import com.ican.saf.ui.dsahboard.bff.spi.model.RouteTransformer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.cloud.gateway.config.GatewayProperties;
-import org.springframework.cloud.gateway.route.RouteLocator;
+import org.springframework.cloud.gateway.server.mvc.config.GatewayMvcProperties;
+import org.springframework.cloud.gateway.server.mvc.handler.GatewayRouterFunctions;
 import org.springframework.web.server.WebSession;
 
 import java.util.List;
 import java.util.Optional;
 
 public class SimpleRouteTransformer implements RouteTransformer {
-    private RouteLocator routeLocator;
+    private GatewayRouterFunctions routeLocator;
     private String realm;
     private String accessToken;
     private String apiKey;
 
     private final Logger logger = LoggerFactory.getLogger(SimpleRouteTransformer.class);
 
-    public SimpleRouteTransformer(RouteLocator routeLocator, WebSession webSession, String apiKey){
+    public SimpleRouteTransformer(GatewayRouterFunctions routeLocator, WebSession webSession, String apiKey){
         this(routeLocator, webSession.getAttributes().get("REALM") + "", webSession.getAttributes().get("TOKEN") + "", apiKey);
     }
 
-    public SimpleRouteTransformer(RouteLocator routeLocator, String realm, WebSession webSession, String apiKey){
+    public SimpleRouteTransformer(GatewayRouterFunctions routeLocator, String realm, WebSession webSession, String apiKey){
         this(routeLocator, realm, webSession.getAttributes().get("TOKEN") + "", apiKey);
     }
 
-    public SimpleRouteTransformer(RouteLocator routeLocator, String realm, String accessToken, String apiKey){
+    public SimpleRouteTransformer(GatewayRouterFunctions routeLocator, String realm, String accessToken, String apiKey){
         this.routeLocator = routeLocator;
         this.realm = realm;
         this.accessToken = accessToken;
@@ -35,7 +35,7 @@ public class SimpleRouteTransformer implements RouteTransformer {
 
     @Override
     public String to(String url) {
-        logger.info("inside to {}", uri);
+        logger.info("inside to {}", url);
         return "";
     }
 
@@ -50,7 +50,7 @@ public class SimpleRouteTransformer implements RouteTransformer {
     }
 
     @Override
-    public Optional<String> to(String id, String path, GatewayProperties gatewayProperties) {
+    public Optional<String> to(String id, String path, GatewayMvcProperties gatewayProperties) {
         List<String> mutatePath = gatewayProperties.getRoutes()
                 .stream()
                 .filter(route -> route.getId().equals(id))

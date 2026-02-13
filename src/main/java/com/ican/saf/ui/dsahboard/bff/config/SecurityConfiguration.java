@@ -1,10 +1,12 @@
 package com.ican.saf.ui.dsahboard.bff.config;
 
+import com.ican.saf.session.model.AuthenticationServiceResponse;
+import com.ican.saf.ui.dsahboard.bff.modal.SSOAuthenticationToken;
 import com.ican.saf.ui.dsahboard.bff.modal.UsernamePasswordAuthenticationModuleToken;
-import com.ican.saf.ui.dsahboard.bff.modal.UsernamePasswordOnlyAuthenticationToken;
 import com.ican.saf.ui.dsahboard.bff.security.ValidationType;
+import com.ican.saf.ui.dsahboard.bff.spi.model.RouteTransformer;
 import com.ican.saf.ui.dsahboard.bff.web.AuthService;
-import jakarta.servlet.http.HttpSession;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,6 +14,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationServiceException;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -19,22 +22,20 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.header.writers.ReferrerPolicyHeaderWriter;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
+
+import java.util.ArrayList;
 
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
 public class SecurityConfiguration {
 
-    @Value("${crypto.error_code_otp_required}")
-    private String errorCodeOTPRequired;
-
-    @Value("${logi.dashboard.apiKey}")
+    @Value("${saf.dashboard.apiKey}")
     private String apiKey;
 
     private final AuthService authService;
@@ -65,36 +66,59 @@ public class SecurityConfiguration {
                 .build();
     }
 
+    @SneakyThrows
     @Bean
     public AuthenticationManager authenticationManager(){
         return this::authenticate;
     }
 
-    private Authentication authenticate(Authentication authentication) throws AuthenticationException{
+    private Authentication authenticate(Authentication authentication){
         UsernamePasswordAuthenticationModuleToken moduleToken = (UsernamePasswordAuthenticationModuleToken) authentication;
         var userName = authentication.getPrincipal().toString();
         var credentials = authentication.getCredentials();
         var password = credentials == null ? null : credentials.toString();
-
-        ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-        HttpSession session = attr.getRequest().getSession(true);
+        var webSession = moduleToken.getWebSession();
 
         var routeTransformer = moduleToken.getRouteTransformer();
-        var authResponse = authService.callLoginService(userName, password, "password",
-                authService.getValidationType(authentication, moduleToken.getRequest()));
 
-        if(authResponse == null) throw new AuthenticationServiceException("Failure during system entry. Please try again.");
+        AuthenticationServiceResponse authenticationServiceResponse = authService.callLoginService(userName, password, "password", ValidationType.PASSWORD);
 
-        if(authResponse.getError() != null){
-            throw new AuthenticationServiceException(authResponse.getError());
-        }
+        if(null == authenticationServiceResponse || null != authenticationServiceResponse.getError()){
+            throw new AuthenticationServiceException("Failure during system entry. Please try again.");
+        } else {
+            var accessToken = authenticationServiceResponse.getAccessToken();
 
-        if(authResponse.getError() != null){
-            if(errorCodeOTPRequired.equals(authResponse.getError())){
-                if(authentication instanceof UsernamePasswordOnlyAuthenticationToken){
-                    var otpResponse = authService.sendOtp()
+            if(!(authentication instanceof SSOAuthenticationToken)){
+                try{
+                    var validateResponse = authService.validateUser(routeTransformer, userName, null, accessToken, webSession);
+                    return validateResponse.isSuccess() ? authorizeUser(authentication, routeTransformer, userName, accessToken, password, null) : null;
+
+                } catch (Exception e) {
+                    throw new BadCredentialsException("Invalid credentials");
                 }
             }
+            return authorizeUser(authentication, routeTransformer, userName, accessToken, password, null);
+        }
+    }
+
+    private UsernamePasswordAuthenticationToken authorizeUser(Authentication authentication, RouteTransformer routeTransformer,
+                                                              String userName, String accessToken, String password, Integer groupNo){
+
+        try{
+            var userDto = authService.authorizeUser(routeTransformer, userName, authentication, accessToken);
+            var authorities = new ArrayList<GrantedAuthority>();
+            if(null != userDto && null != userDto.getRoles()){
+                for(var role : userDto.getRoles()){
+                    for(var ve : role.getVisualElements()){
+                        authorities.add(new SimpleGrantedAuthority(ve.getName()));
+                    }
+                }
+            }
+            var result = new UsernamePasswordAuthenticationToken(userName, password, authorities);
+            result.setDetails(authService.generateAuthenticationDetail(accessToken, groupNo));
+            return result;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 

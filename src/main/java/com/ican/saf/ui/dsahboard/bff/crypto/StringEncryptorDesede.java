@@ -2,6 +2,7 @@ package com.ican.saf.ui.dsahboard.bff.crypto;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
@@ -17,6 +18,7 @@ import java.security.spec.KeySpec;
  * This class is intended to be used as a Spring bean and expects the encryption scheme to be configured
  * via the {@code crypto.desede_encryption_scheme} property.
  */
+@Component
 public class StringEncryptorDesede implements StringEncryptorInt{
     @Value("${crypto.desede_encryption_scheme}")
     private String desedeEncryptionScheme;

@@ -3,7 +3,7 @@ package com.ican.saf.ui.dsahboard.bff.modal.response;
 import java.io.Serial;
 import java.io.Serializable;
 
-public class AuthoriryGenericResponse implements Serializable {
+public class AuthorityGenericResponse implements Serializable {
     @Serial
     private static long serialVersionUID = 9L;
 
@@ -12,7 +12,7 @@ public class AuthoriryGenericResponse implements Serializable {
     private Object error;
     private Object validations;
 
-    public AuthoriryGenericResponse() {
+    public AuthorityGenericResponse() {
     }
 
     public static long getSerialVersionUID() {
@@ -20,7 +20,7 @@ public class AuthoriryGenericResponse implements Serializable {
     }
 
     public static void setSerialVersionUID(long serialVersionUID) {
-        AuthoriryGenericResponse.serialVersionUID = serialVersionUID;
+        AuthorityGenericResponse.serialVersionUID = serialVersionUID;
     }
 
     public Object getData() {

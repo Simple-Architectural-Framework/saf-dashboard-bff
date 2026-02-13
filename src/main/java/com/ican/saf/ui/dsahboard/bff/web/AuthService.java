@@ -1,14 +1,14 @@
 package com.ican.saf.ui.dsahboard.bff.web;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ican.saf.exception.CredentialsFirstLoginException;
+import com.ican.saf.session.model.AuthenticationDetail;
 import com.ican.saf.session.model.AuthenticationServiceResponse;
+import com.ican.saf.session.model.UserDTO;
 import com.ican.saf.ui.dsahboard.bff.crypto.StringEncryptorDesede;
 import com.ican.saf.ui.dsahboard.bff.crypto.StringEncryptorInt;
-import com.ican.saf.ui.dsahboard.bff.modal.OneTimePasswordAuthenticationToken;
-import com.ican.saf.ui.dsahboard.bff.modal.OtpRequest;
-import com.ican.saf.ui.dsahboard.bff.modal.SSOAuthenticationToken;
-import com.ican.saf.ui.dsahboard.bff.modal.UsernamePasswordOnlyAuthenticationToken;
-import com.ican.saf.ui.dsahboard.bff.modal.response.AuthoriryGenericResponse;
+import com.ican.saf.ui.dsahboard.bff.modal.*;
 import com.ican.saf.ui.dsahboard.bff.security.ValidationType;
 import com.ican.saf.ui.dsahboard.bff.spi.client.ClientHelper;
 import com.ican.saf.ui.dsahboard.bff.spi.model.RouteTransformer;
@@ -17,20 +17,24 @@ import com.ican.saf.ui.dsahboard.bff.util.SafWebUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.gateway.config.GatewayProperties;
+import org.springframework.cloud.gateway.server.mvc.config.GatewayMvcProperties;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.security.authentication.AuthenticationServiceException;
+import org.springframework.security.authentication.CredentialsExpiredException;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.web.server.WebSession;
 
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
+import static com.ican.saf.ui.dsahboard.bff.spi.client.ClientHelper.getClientInstance;
 import static com.ican.saf.ui.dsahboard.bff.spi.client.ClientHelper.getHeaders;
 
 @Service
@@ -59,14 +63,12 @@ public class AuthService {
     @Value("#{'${saf.dashboard.intranetServerNames:}'.split('\\s*,\\s*').?[!#this.isEmpty()]}")
     private List<String> intranetServerNames;
 
-    private final ObjectMapper objectMapper;
-
-    private final GatewayProperties gatewayProperties;
+    private final GatewayMvcProperties gatewayProperties;
     private final StringEncryptorDesede stringEncryptorDesede;
 
     private final Logger logger = LoggerFactory.getLogger(AuthService.class);
 
-    public AuthService(GatewayProperties gatewayProperties, StringEncryptorDesede stringEncryptorDesede){
+    public AuthService(GatewayMvcProperties gatewayProperties, StringEncryptorDesede stringEncryptorDesede){
         this.gatewayProperties = gatewayProperties;
         this.stringEncryptorDesede = stringEncryptorDesede;
     }
@@ -121,10 +123,70 @@ public class AuthService {
         return ValidationType.PASSWORD;
     }
 
-    public AuthoriryGenericResponse sendOtp(RouteTransformer routeTransformer, OtpRequest otpRequest) throws Exception {
+    public BaseResponse<String> validateUser(RouteTransformer routeTransformer, String userName, String taxNumber,
+                                             String accessToken, WebSession webSession){
+        var additionalHeaders = new LinkedMultiValueMap<String, Object>();
+        additionalHeaders.add("x-username", userName);
+        additionalHeaders.add("x-api-key", apiKey);
+
+        var validateUserUrl = routeTransformer.to("dashboard", "users/validate", gatewayProperties);
+
+        if(validateUserUrl.isEmpty()) throw new AuthenticationServiceException("validateUserUrl is empty");
+
+        return getClientInstance(validateUserUrl.get())
+                .get()
+                .acceptCharset(StandardCharsets.UTF_8)
+                .headers(httpHeaders -> httpHeaders.addAll(getHeaders(accessToken, additionalHeaders)))
+                .retrieve()
+                .onStatus(HttpStatusCode::is5xxServerError, ((request, response) -> {
+                    var mapper = new ObjectMapper();
+                    BaseResponse<String> errorBody = mapper.readValue(response.getBody(),
+                            new TypeReference<>() {});
+
+                    var info = Objects.requireNonNull(errorBody.getError());
+                    logger.warn("validate user failed\r\n {}:{}", info.getMessage(), info.getDetailedMessage());
+
+                    var splittedString = info.getMessage().split(":");
+
+                    if(splittedString[0].equalsIgnoreCase("PASSWORD_EXPIRED")){
+                        webSession.getAttributes().put("changePasswordSavedData", new ChangePasswordSavedData(accessToken, userName, taxNumber));
+                        throw new CredentialsExpiredException(splittedString[1]);
+                    } else if(splittedString[0].equalsIgnoreCase("USER_STATUS_ERROR")){
+                        webSession.getAttributes().put("changePasswordSavedData", new ChangePasswordSavedData(accessToken, userName, taxNumber));
+                        throw new CredentialsFirstLoginException(splittedString[1]);
+                    }
+                    throw new RuntimeException("Internal Server Error");
+                }))
+                .onStatus(HttpStatusCode::isError, (request, response) -> {
+                    ObjectMapper mapper = new ObjectMapper();
+                    var errorBody = mapper.readValue(response.getBody(), BaseResponse.class);
+
+                    var errorMessage = (errorBody.getError().getDetailedMessage() == null || errorBody.getError().getDetailedMessage().isEmpty()) ?
+                            errorBody.getError().getMessage() : errorBody.getError().getDetailedMessage();
+                    throw new AuthenticationServiceException(errorMessage);
+                })
+                .body(new ParameterizedTypeReference<>() {});
+
+    }
+
+    public UserDTO authorizeUser(RouteTransformer routeTransformer, String userName, Authentication authentication,
+                                 String accessToken){
+        var additionalHeaders = new LinkedMultiValueMap<String, String>();
+        additionalHeaders.add("x-username", userName);
+        additionalHeaders.add("x-api-key", apiKey);
+
+        var authorizeUserUrl = routeTransformer.to("dashboard", "users/currentUser/allAuthorizations", gatewayProperties);
+        return null;
+    }
+
+    public AuthenticationDetail generateAuthenticationDetail(String accessToken, Object ...arguments){
+        return new AuthenticationDetail(accessToken, "ican");
+    }
+
+/*    public AuthorityGenericResponse sendOtp(RouteTransformer routeTransformer, OtpRequest otpRequest) throws Exception {
         var sendOtpUrl = routeTransformer.to("dashboard-public", "login/sendOtp", gatewayProperties);
 
-        if(sendOtpUrl.isEmpty()) throw new Exception("sendOtpUrl is not empty");
+        if(sendOtpUrl.isEmpty()) throw new Exception("sendOtpUrl is empty");
 
         var additionalHeaders = new LinkedMultiValueMap<String, String>();
         additionalHeaders.add("x-api-key", apiKey);
@@ -139,25 +201,28 @@ public class AuthService {
                 .body(otpRequest)
                 .retrieve()
                 //Handle non-2xx status code
-                .onStatus(HttpStatusCode::isError, ((request, response) -> {
-                    try {
-                        BaseResponse<?> errorBody = objectMapper.readValue(response.getBody(), BaseResponse.class);
+                .onStatus(clientResponse ->{
+                    String errorMessage = "Unknown error";
+                    if(!clientResponse.getStatusCode().is2xxSuccessful()) {
+                            try {
+                                BaseResponse<?> errorBody = new ObjectMapper().readValue(clientResponse.getBody(), BaseResponse.class);
 
-                        String errorMessage = "Unknown error";
-                        if (errorBody != null && errorBody.getError() != null) {
-                            var err = errorBody.getError();
-                            errorMessage = (err.getDetailedMessage() != null && err.getDetailedMessage().isEmpty())
-                                    ? err.getDetailedMessage()
-                                    : err.getMessage();
-                        }
-                        throw new AuthenticationServiceException(errorMessage);
-                    } catch (IOException e){
-                        throw new AuthenticationServiceException("Error while parsing error response", e);
+                                if (errorBody != null && errorBody.getError() != null) {
+                                    var err = errorBody.getError();
+                                    errorMessage = (err.getDetailedMessage() != null && !err.getDetailedMessage().isEmpty())
+                                            ? err.getDetailedMessage()
+                                            : err.getMessage();
+                                }
+                                throw new AuthenticationServiceException(errorMessage);
+                            } catch (IOException e) {
+                                throw new AuthenticationServiceException("Error while parsing error response", e);
+                            }
                     }
-                }))
-                .toEntity(AuthoriryGenericResponse.class);
+                    return true;
+                })
+                .toEntity(AuthorityGenericResponse.class);
 
-    }
+    }*/
 
     private String getOtpToken(String username, Date date){
         try {
