@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ican.saf.exception.CredentialsFirstLoginException;
 import com.ican.saf.session.model.AuthenticationDetail;
-import com.ican.saf.session.model.AuthenticationServiceResponse;
+import com.ican.saf.session.model.OAuth2TokenResponse;
 import com.ican.saf.session.model.UserDTO;
 import com.ican.saf.ui.dsahboard.bff.crypto.StringEncryptorDesede;
 import com.ican.saf.ui.dsahboard.bff.crypto.StringEncryptorInt;
@@ -73,8 +73,8 @@ public class AuthService {
         this.stringEncryptorDesede = stringEncryptorDesede;
     }
 
-    public AuthenticationServiceResponse callLoginService(String userName, String password,
-                                                          String grantType, ValidationType validationType) {
+    public OAuth2TokenResponse callLoginService(String userName, String password,
+                                                String grantType, ValidationType validationType) {
         try {
             var formData = new LinkedMultiValueMap<String, Object>();
             formData.add("username", userName);
@@ -100,7 +100,7 @@ public class AuthService {
                     .accept(MediaType.APPLICATION_JSON)
                     .body(formData)
                     .retrieve()
-                    .body(AuthenticationServiceResponse.class);
+                    .body(OAuth2TokenResponse.class);
         } catch (Exception e) {
             logger.error("Error while calling login service", e);
             throw new AuthenticationServiceException("Failure during system entry. Please try again.", e);

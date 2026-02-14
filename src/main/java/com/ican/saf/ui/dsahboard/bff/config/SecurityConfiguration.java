@@ -1,9 +1,9 @@
 package com.ican.saf.ui.dsahboard.bff.config;
 
-import com.ican.saf.session.model.AuthenticationServiceResponse;
+import com.ican.saf.session.model.OAuth2TokenResponse;
 import com.ican.saf.ui.dsahboard.bff.modal.SSOAuthenticationToken;
 import com.ican.saf.ui.dsahboard.bff.modal.UsernamePasswordAuthenticationModuleToken;
-import com.ican.saf.ui.dsahboard.bff.security.ValidationType;
+import com.ican.saf.ui.dsahboard.bff.security.OAuth2Service;
 import com.ican.saf.ui.dsahboard.bff.spi.model.RouteTransformer;
 import com.ican.saf.ui.dsahboard.bff.web.AuthService;
 import lombok.SneakyThrows;
@@ -40,8 +40,11 @@ public class SecurityConfiguration {
 
     private final AuthService authService;
 
-    public SecurityConfiguration(AuthService authService){
+    private final OAuth2Service oAuth2Service;
+
+    public SecurityConfiguration(AuthService authService, OAuth2Service oAuth2Service){
         this.authService = authService;
+        this.oAuth2Service = oAuth2Service;
     }
 
     @Bean
@@ -81,24 +84,44 @@ public class SecurityConfiguration {
 
         var routeTransformer = moduleToken.getRouteTransformer();
 
-        AuthenticationServiceResponse authenticationServiceResponse = authService.callLoginService(userName, password, "password", ValidationType.PASSWORD);
+        var tokenResponse = oAuth2Service.login(userName, password);
 
-        if(null == authenticationServiceResponse || null != authenticationServiceResponse.getError()){
+        if(null == tokenResponse || null != tokenResponse.getError() ){
             throw new AuthenticationServiceException("Failure during system entry. Please try again.");
         } else {
-            var accessToken = authenticationServiceResponse.getAccessToken();
+            var accessToken = tokenResponse.getAccessToken();
 
             if(!(authentication instanceof SSOAuthenticationToken)){
                 try{
-                    var validateResponse = authService.validateUser(routeTransformer, userName, null, accessToken, webSession);
-                    return validateResponse.isSuccess() ? authorizeUser(authentication, routeTransformer, userName, accessToken, password, null) : null;
-
+                    var validationResponse = authService.validateUser(routeTransformer, userName, null, accessToken, webSession);
+                    return validationResponse.isSuccess() ? authorizeUser(authentication, routeTransformer, userName, accessToken, password, null) : null;
                 } catch (Exception e) {
                     throw new BadCredentialsException("Invalid credentials");
                 }
             }
             return authorizeUser(authentication, routeTransformer, userName, accessToken, password, null);
         }
+
+
+
+//        AuthenticationServiceResponse authenticationServiceResponse = authService.callLoginService(userName, password, "password", ValidationType.PASSWORD);
+//
+//        if(null == authenticationServiceResponse || null != authenticationServiceResponse.getError()){
+//            throw new AuthenticationServiceException("Failure during system entry. Please try again.");
+//        } else {
+//            var accessToken = authenticationServiceResponse.getAccessToken();
+//
+//            if(!(authentication instanceof SSOAuthenticationToken)){
+//                try{
+//                    var validateResponse = authService.validateUser(routeTransformer, userName, null, accessToken, webSession);
+//                    return validateResponse.isSuccess() ? authorizeUser(authentication, routeTransformer, userName, accessToken, password, null) : null;
+//
+//                } catch (Exception e) {
+//                    throw new BadCredentialsException("Invalid credentials");
+//                }
+//            }
+//            return authorizeUser(authentication, routeTransformer, userName, accessToken, password, null);
+//        }
     }
 
     private UsernamePasswordAuthenticationToken authorizeUser(Authentication authentication, RouteTransformer routeTransformer,
