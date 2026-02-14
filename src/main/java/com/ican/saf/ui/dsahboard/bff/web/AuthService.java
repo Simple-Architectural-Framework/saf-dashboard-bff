@@ -54,7 +54,7 @@ public class AuthService {
     @Value("${authentication.url}")
     private String authenticationUrl;
 
-    @Value("${saf.dashboard.api_key}")
+    @Value("${saf.dashboard.api-key}")
     private String apiKey;
 
     @Value("${saf.dashboard.forceOtp:false}")

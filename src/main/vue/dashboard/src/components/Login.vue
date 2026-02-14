@@ -31,11 +31,8 @@ const login = async (): Promise<void> => {
         jss: '1234567890'
     });
 
-    console.log('Attempting login with:', queryParams.toString());
-
     try{
-        // const response = await fetch(`/saf-dashboard-bff/api/v1/login?${queryParams.toString()}`, {
-        const response = await fetch(`/saf-dashboard-bff/auth/login?${queryParams.toString()}`, {
+        const response = await fetch(`/saf-dashboard-bff/api/auth/login?${queryParams.toString()}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -48,8 +45,6 @@ const login = async (): Promise<void> => {
             throw new Error(`Login failed: ${response.statusText}`);
         }
 
-        const data = await response.json();
-        console.log('Login successful:', data);
     } catch (err: unknown) {
         const message = err instanceof Error ? err.message : String(err);
         console.error('Login error:', message);

@@ -35,7 +35,7 @@ import java.util.ArrayList;
 @EnableMethodSecurity
 public class SecurityConfiguration {
 
-    @Value("${saf.dashboard.apiKey}")
+    @Value("${saf.dashboard.api-key}")
     private String apiKey;
 
     private final AuthService authService;
