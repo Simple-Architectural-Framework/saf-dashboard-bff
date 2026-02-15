@@ -27,6 +27,7 @@ import org.springframework.security.authentication.CredentialsExpiredException;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.web.client.RestClient;
 import org.springframework.web.server.WebSession;
 
 import java.nio.charset.StandardCharsets;
@@ -157,13 +158,16 @@ public class AuthService {
                     }
                     throw new RuntimeException("Internal Server Error");
                 }))
-                .onStatus(HttpStatusCode::isError, (request, response) -> {
-                    ObjectMapper mapper = new ObjectMapper();
-                    var errorBody = mapper.readValue(response.getBody(), BaseResponse.class);
+                .onStatus( response -> {
+                    if(!response.getStatusCode().is2xxSuccessful()) {
+                        ObjectMapper mapper = new ObjectMapper();
+                        var errorBody = mapper.readValue(response.getBody(), BaseResponse.class);
 
-                    var errorMessage = (errorBody.getError().getDetailedMessage() == null || errorBody.getError().getDetailedMessage().isEmpty()) ?
-                            errorBody.getError().getMessage() : errorBody.getError().getDetailedMessage();
-                    throw new AuthenticationServiceException(errorMessage);
+                        var errorMessage = (errorBody.getError().getDetailedMessage() == null || errorBody.getError().getDetailedMessage().isEmpty()) ?
+                                errorBody.getError().getMessage() : errorBody.getError().getDetailedMessage();
+                        throw new AuthenticationServiceException(errorMessage);
+                    }
+                    return true;
                 })
                 .body(new ParameterizedTypeReference<>() {});
 
@@ -181,6 +185,68 @@ public class AuthService {
 
     public AuthenticationDetail generateAuthenticationDetail(String accessToken, Object ...arguments){
         return new AuthenticationDetail(accessToken, "ican");
+    }
+
+    public UserNameSurnameResponse getUserNameSurname(RouteTransformer routeTransformer, String username) throws Exception {
+        var generateTokenUrl = routeTransformer.to("dashboard-public", "users/validate", gatewayProperties);
+
+        if(generateTokenUrl.isEmpty()) throw new Exception("generateTokenUrl is empty");
+
+        var additionalHeaders = new LinkedMultiValueMap<String, Object>();
+        additionalHeaders.add("x-username", username);
+        additionalHeaders.add("x-api-key", apiKey);
+
+        return ClientHelper.getClientInstanceWithRealm(generateTokenUrl.get(), realm)
+                .get()
+                .acceptCharset(StandardCharsets.UTF_8)
+                .accept(MediaType.APPLICATION_JSON)
+                .headers(httpHeaders -> httpHeaders.addAll(getHeaders(null, additionalHeaders)))
+                .retrieve()
+                .onStatus( response -> {
+                    if(!response.getStatusCode().is2xxSuccessful()){
+                        var mapper = new ObjectMapper();
+                        var errorBody = mapper.readValue(response.getBody(), BaseResponse.class);
+
+                        var errorMessage = (errorBody.getError().getDetailedMessage() == null || errorBody.getError().getDetailedMessage().isEmpty()) ?
+                                errorBody.getError().getMessage() : errorBody.getError().getDetailedMessage();
+                        throw new AuthenticationServiceException(errorMessage);
+                    }
+                    return true;
+                })
+                .body(UserNameSurnameResponse.class);
+    }
+
+    public UserDTO getUserDetails(RouteTransformer routeTransformer, String accessToken, String username){
+        var headers = new LinkedMultiValueMap<String, String>();
+        headers.add("x-username", username);
+        headers.add("x-api-key", apiKey);
+
+        var url = routeTransformer.to("dashboard", "users/currentUser/allAuthorizations", gatewayProperties);
+        if(url.isEmpty())
+            try{
+                throw new Exception("url is not present");
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
+        return ClientHelper.getClientInstance(url.get())
+                .get()
+                .acceptCharset(StandardCharsets.UTF_8)
+                .accept(MediaType.APPLICATION_JSON)
+                .headers(httpHeaders -> httpHeaders.addAll(getHeaders(accessToken, headers)))
+                .retrieve()
+                .onStatus(response -> {
+                    if(!response.getStatusCode().is2xxSuccessful()){
+                        var mapper = new ObjectMapper();
+                        var errorBody = mapper.readValue(response.getBody(), BaseResponse.class);
+
+                        var errorMessage = (errorBody.getError().getDetailedMessage() == null || errorBody.getError().getDetailedMessage().isEmpty()) ?
+                                errorBody.getError().getMessage() : errorBody.getError().getDetailedMessage();
+                        throw new AuthenticationServiceException(errorMessage);
+                    }
+                    return true;
+                })
+                .body(UserDTO.class);
     }
 
 /*    public AuthorityGenericResponse sendOtp(RouteTransformer routeTransformer, OtpRequest otpRequest) throws Exception {
