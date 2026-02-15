@@ -11,6 +11,6 @@ import java.io.Serializable;
 public class UserNameSurnameResponse implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
-    private String userName;
-    private String surname;
+    private String firstName;
+    private String lastName;
 }
