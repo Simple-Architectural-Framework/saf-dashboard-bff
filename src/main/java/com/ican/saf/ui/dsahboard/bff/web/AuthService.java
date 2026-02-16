@@ -14,6 +14,8 @@ import com.ican.saf.ui.dsahboard.bff.spi.client.ClientHelper;
 import com.ican.saf.ui.dsahboard.bff.spi.model.RouteTransformer;
 import com.ican.saf.ui.dsahboard.bff.spi.model.response.ws.BaseResponse;
 import com.ican.saf.ui.dsahboard.bff.util.SafWebUtils;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,14 +23,11 @@ import org.springframework.cloud.gateway.server.mvc.config.GatewayMvcProperties;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
-import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.CredentialsExpiredException;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.web.client.RestClient;
-import org.springframework.web.server.WebSession;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
@@ -108,7 +107,7 @@ public class AuthService {
         }
     }
 
-    public ValidationType getValidationType(Authentication authentication, ServerHttpRequest request){
+    public ValidationType getValidationType(Authentication authentication, HttpServletRequest request){
         if(authentication instanceof OneTimePasswordAuthenticationToken) return ValidationType.OTP;
 
         if(authentication instanceof UsernamePasswordOnlyAuthenticationToken){
@@ -125,7 +124,7 @@ public class AuthService {
     }
 
     public BaseResponse<String> validateUser(RouteTransformer routeTransformer, String userName, String taxNumber,
-                                             String accessToken, WebSession webSession){
+                                             String accessToken, HttpSession session){
         var additionalHeaders = new LinkedMultiValueMap<String, Object>();
         additionalHeaders.add("x-username", userName);
         additionalHeaders.add("x-api-key", apiKey);
@@ -150,10 +149,10 @@ public class AuthService {
                     var splittedString = info.getMessage().split(":");
 
                     if(splittedString[0].equalsIgnoreCase("PASSWORD_EXPIRED")){
-                        webSession.getAttributes().put("changePasswordSavedData", new ChangePasswordSavedData(accessToken, userName, taxNumber));
+                        session.setAttribute("changePasswordSavedData", new ChangePasswordSavedData(accessToken, userName, taxNumber));
                         throw new CredentialsExpiredException(splittedString[1]);
                     } else if(splittedString[0].equalsIgnoreCase("USER_STATUS_ERROR")){
-                        webSession.getAttributes().put("changePasswordSavedData", new ChangePasswordSavedData(accessToken, userName, taxNumber));
+                        session.setAttribute("changePasswordSavedData", new ChangePasswordSavedData(accessToken, userName, taxNumber));
                         throw new CredentialsFirstLoginException(splittedString[1]);
                     }
                     throw new RuntimeException("Internal Server Error");
@@ -217,7 +216,7 @@ public class AuthService {
     }
 
     public UserDTO getUserDetails(RouteTransformer routeTransformer, String accessToken, String username){
-        var headers = new LinkedMultiValueMap<String, String>();
+        var headers = new LinkedMultiValueMap<String, Object>();
         headers.add("x-username", username);
         headers.add("x-api-key", apiKey);
 
@@ -299,7 +298,7 @@ public class AuthService {
         }
     }
 
-    private boolean isIntranetLogin(ServerHttpRequest request){
+    private boolean isIntranetLogin(HttpServletRequest request){
         logger.debug("SafAuthenticationProvider.isIntranetLogin");
 
         var serverName = SafWebUtils.getRequestServerName(request);

@@ -1,32 +1,37 @@
 package com.ican.saf.ui.dsahboard.bff.gateway;
 
 import com.ican.saf.ui.dsahboard.bff.spi.model.RouteTransformer;
+import jakarta.servlet.http.HttpSession;
+import lombok.NoArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.gateway.server.mvc.config.GatewayMvcProperties;
-import org.springframework.cloud.gateway.server.mvc.handler.GatewayRouterFunctions;
-import org.springframework.web.server.WebSession;
+import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.function.RouterFunction;
+import org.springframework.web.servlet.function.ServerResponse;
 
 import java.util.List;
 import java.util.Optional;
 
+@Component
+@NoArgsConstructor
 public class SimpleRouteTransformer implements RouteTransformer {
-    private GatewayRouterFunctions routeLocator;
+    private RouterFunction<ServerResponse> routeLocator;
     private String realm;
     private String accessToken;
     private String apiKey;
 
     private final Logger logger = LoggerFactory.getLogger(SimpleRouteTransformer.class);
 
-    public SimpleRouteTransformer(GatewayRouterFunctions routeLocator, WebSession webSession, String apiKey){
-        this(routeLocator, webSession.getAttributes().get("REALM") + "", webSession.getAttributes().get("TOKEN") + "", apiKey);
+    public SimpleRouteTransformer(RouterFunction<ServerResponse> routeLocator, HttpSession session, String apiKey){
+        this(routeLocator, session.getAttribute("REALM") + "", session.getAttribute("TOKEN") + "", apiKey);
     }
 
-    public SimpleRouteTransformer(GatewayRouterFunctions routeLocator, String realm, WebSession webSession, String apiKey){
-        this(routeLocator, realm, webSession.getAttributes().get("TOKEN") + "", apiKey);
+    public SimpleRouteTransformer(RouterFunction<ServerResponse> routeLocator, String realm, HttpSession session, String apiKey){
+        this(routeLocator, realm, session.getAttribute("TOKEN") + "", apiKey);
     }
 
-    public SimpleRouteTransformer(GatewayRouterFunctions routeLocator, String realm, String accessToken, String apiKey){
+    public SimpleRouteTransformer(RouterFunction<ServerResponse> routeLocator, String realm, String accessToken, String apiKey){
         this.routeLocator = routeLocator;
         this.realm = realm;
         this.accessToken = accessToken;

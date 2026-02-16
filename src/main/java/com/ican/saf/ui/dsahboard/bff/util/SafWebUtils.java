@@ -1,14 +1,14 @@
 package com.ican.saf.ui.dsahboard.bff.util;
 
-import org.springframework.http.server.ServerHttpRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 public class SafWebUtils {
-    public static String getClientAddress(ServerHttpRequest request){
-        var clientAddress = request.getHeaders().getFirst("X-Forwarded-For");
+    public static String getClientAddress(HttpServletRequest request){
+        var clientAddress = request.getHeader("X-Forwarded-For");
 
         if(clientAddress == null || clientAddress.isEmpty() || "unknown".equalsIgnoreCase(clientAddress)){
-            if(request.getRemoteAddress() != null){
-                clientAddress = request.getRemoteAddress().getAddress().getHostAddress();
+            if(request.getRemoteAddr() != null){
+                clientAddress = request.getRemoteAddr();
             }
         } else {
             var commandIndex = clientAddress.indexOf(',');
@@ -19,11 +19,11 @@ public class SafWebUtils {
         return clientAddress;
     }
 
-    public static String getLookupPathForRequest(ServerHttpRequest request){
-        return request.getURI().getPath();
+    public static String getLookupPathForRequest(HttpServletRequest request){
+        return request.getRequestURI();
     }
 
-    public static String getRequestServerName(ServerHttpRequest request){
-        return request.getURI().getHost();
+    public static String getRequestServerName(HttpServletRequest request){
+        return request.getRequestURI();
     }
 }

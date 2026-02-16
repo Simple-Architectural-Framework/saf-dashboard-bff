@@ -1,9 +1,9 @@
 package com.ican.saf.ui.dsahboard.bff.modal;
 
 import com.ican.saf.ui.dsahboard.bff.spi.model.RouteTransformer;
-import org.springframework.http.server.ServerHttpRequest;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.web.server.WebSession;
 
 import java.io.Serial;
 
@@ -12,15 +12,15 @@ public class UsernamePasswordAuthenticationModuleToken extends UsernamePasswordA
     private static final long serialVersionUID = 1L;
     private String realm;
     private RouteTransformer routeTransformer;
-    private WebSession webSession;
-    private ServerHttpRequest request;
+    private HttpSession session;
+    private HttpServletRequest request;
 
     public UsernamePasswordAuthenticationModuleToken(Object principal, Object credentials, String realm, RouteTransformer routeTransformer,
-                                                     WebSession webSession, ServerHttpRequest request) {
+                                                     HttpSession session, HttpServletRequest request) {
         super(principal, credentials);
         this.realm = realm;
         this.routeTransformer = routeTransformer;
-        this.webSession = webSession;
+        this.session = session;
         this.request = request;
     }
 
@@ -28,12 +28,12 @@ public class UsernamePasswordAuthenticationModuleToken extends UsernamePasswordA
         return realm;
     }
 
-    public ServerHttpRequest getRequest() {
+    public HttpServletRequest getRequest() {
         return request;
     }
 
-    public WebSession getWebSession() {
-        return webSession;
+    public HttpSession getSession() {
+        return session;
     }
 
     public RouteTransformer getRouteTransformer() {

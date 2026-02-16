@@ -80,7 +80,7 @@ public class SecurityConfiguration {
         var userName = authentication.getPrincipal().toString();
         var credentials = authentication.getCredentials();
         var password = credentials == null ? null : credentials.toString();
-        var webSession = moduleToken.getWebSession();
+        var session = moduleToken.getSession();
 
         var routeTransformer = moduleToken.getRouteTransformer();
 
@@ -93,7 +93,7 @@ public class SecurityConfiguration {
 
             if(!(authentication instanceof SSOAuthenticationToken)){
                 try{
-                    var validationResponse = authService.validateUser(routeTransformer, userName, null, accessToken, webSession);
+                    var validationResponse = authService.validateUser(routeTransformer, userName, null, accessToken, session);
                     return validationResponse.isSuccess() ? authorizeUser(authentication, routeTransformer, userName, accessToken, password, null) : null;
                 } catch (Exception e) {
                     throw new BadCredentialsException("Invalid credentials");

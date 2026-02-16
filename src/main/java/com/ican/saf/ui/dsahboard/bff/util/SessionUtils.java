@@ -24,10 +24,8 @@ public class SessionUtils {
      * Clears attributes and rotates the session ID.
      * In MVC, this is a simple void or return-type operation without Mono.
      */
-    public static WebSession clearSessionAndChangeSessionId(WebSession webSession){
-        webSession.getAttributes().clear();
-        webSession.changeSessionId();
-        webSession.save();
-        return webSession;
+    public static HttpSession clearSessionAndChangeSessionId(HttpSession session){
+        session.invalidate();
+        return session;
     }
 }

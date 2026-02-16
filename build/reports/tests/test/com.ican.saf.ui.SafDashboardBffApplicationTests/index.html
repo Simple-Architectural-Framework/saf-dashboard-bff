@@ -65,7 +65,7 @@
 </td>
 <td>
 <div class="infoBox duration">
-<div class="counter">2.225s</div>
+<div class="counter">2.319s</div>
 <p>duration</p>
 </div>
 </td>
@@ -113,7 +113,7 @@
 <td>1</td>
 <td>1</td>
 <td>0</td>
-<td>0.007s</td>
+<td>0.003s</td>
 <td class="failures">0%</td>
 </tr>
 </table>
@@ -140,7 +140,7 @@
 <td>1</td>
 <td>1</td>
 <td>0</td>
-<td>0.007s</td>
+<td>0.003s</td>
 <td class="failures">0%</td>
 </tr>
 </table>
@@ -151,33 +151,26 @@
 <div class="tab">
 <h2>standard output</h2>
 <span class="code">
-<pre id="root-0-test-stdout-com.ican.saf.ui.SafDashboardBffApplicationTests">09:13:23.283 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.ican.saf.ui.SafDashboardBffApplicationTests]: SafDashboardBffApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-09:13:23.332 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.ican.saf.ui.SafDashboardBffApplication for test class com.ican.saf.ui.SafDashboardBffApplicationTests
-2026-02-13T09:13:23.810+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
-2026-02-13T09:13:23.828+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
-2026-02-13T09:13:23.829+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource gateway-properties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
-2026-02-13T09:13:23.829+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
-2026-02-13T09:13:23.829+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource Inlined Test Properties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
-2026-02-13T09:13:23.829+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
-2026-02-13T09:13:23.829+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
-2026-02-13T09:13:23.829+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
-2026-02-13T09:13:23.829+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource cachedrandom [org.springframework.cloud.util.random.CachedRandomPropertySource] to EncryptablePropertySourceWrapper
-2026-02-13T09:13:23.829+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource Config resource 'class path resource [bootstrap-default.yml]' via location 'optional:classpath:/' [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
-2026-02-13T09:13:23.829+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource Config resource 'class path resource [bootstrap.yml]' via location 'optional:classpath:/' [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
-2026-02-13T09:13:23.830+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
-2026-02-13T09:13:23.830+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/bootstrap-default.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
-2026-02-13T09:13:23.830+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/bootstrap.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
-2026-02-13T09:13:23.831+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationInfo [org.springframework.boot.ApplicationInfoPropertySource] to EncryptableMapPropertySourceWrapper
-2026-02-13T09:13:23.845+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
-2026-02-13T09:13:23.855+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
-2026-02-13T09:13:23.856+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
-2026-02-13T09:13:23.873+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.encryptor.DefaultLazyEncryptor     : String Encryptor custom Bean not found with name 'jasyptStringEncryptor'. Initializing Default String Encryptor
-2026-02-13T09:13:23.879+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.key-obtention-iterations, using default value: 1000
-2026-02-13T09:13:23.879+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.pool-size, using default value: 1
-2026-02-13T09:13:23.879+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.provider-name, using default value: null
-2026-02-13T09:13:23.880+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.provider-class-name, using default value: null
-2026-02-13T09:13:23.880+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.salt-generator-classname, using default value: org.jasypt.salt.RandomSaltGenerator
-2026-02-13T09:13:23.881+03:00  INFO 8131 --- [saf-dashboard-bff] [    Test worker] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.string-output-type, using default value: base64
+<pre id="root-0-test-stdout-com.ican.saf.ui.SafDashboardBffApplicationTests">13:25:30.416 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.ican.saf.ui.SafDashboardBffApplicationTests]: SafDashboardBffApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+13:25:30.470 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.ican.saf.ui.SafDashboardBffApplication for test class com.ican.saf.ui.SafDashboardBffApplicationTests
+2026-02-16T13:25:30.970+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2026-02-16T13:25:30.989+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2026-02-16T13:25:30.990+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource gatewayHttpClientProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2026-02-16T13:25:30.990+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2026-02-16T13:25:30.990+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource Inlined Test Properties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2026-02-16T13:25:30.990+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2026-02-16T13:25:30.990+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+2026-02-16T13:25:30.990+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2026-02-16T13:25:30.990+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource cachedrandom [org.springframework.cloud.util.random.CachedRandomPropertySource] to EncryptablePropertySourceWrapper
+2026-02-16T13:25:30.991+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource Config resource 'class path resource [bootstrap-default.yml]' via location 'optional:classpath:/' [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2026-02-16T13:25:30.991+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource Config resource 'class path resource [bootstrap.yml]' via location 'optional:classpath:/' [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2026-02-16T13:25:30.991+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2026-02-16T13:25:30.991+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/bootstrap-default.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2026-02-16T13:25:30.991+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/bootstrap.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2026-02-16T13:25:30.991+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationInfo [org.springframework.boot.ApplicationInfoPropertySource] to EncryptableMapPropertySourceWrapper
+2026-02-16T13:25:31.009+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2026-02-16T13:25:31.027+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2026-02-16T13:25:31.029+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -188,184 +181,62 @@
 
  :: Spring Boot ::                (v3.4.2)
 
-2026-02-13T09:13:23.965+03:00  INFO 8131 --- [saf-common-spring-boot-starter] [    Test worker] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:8761/config
-2026-02-13T09:13:24.958+03:00  INFO 8131 --- [saf-common-spring-boot-starter] [    Test worker] c.c.c.ConfigServicePropertySourceLocator : Located environment: name=saf-common-spring-boot-starter, profiles=[default], label=master, version=61c6357f0f0b8bdb21290fc3f58f74bef33fc310, state=
-2026-02-13T09:13:24.958+03:00  INFO 8131 --- [saf-common-spring-boot-starter] [    Test worker] b.c.PropertySourceBootstrapConfiguration : Located property source: [BootstrapPropertySource {name='bootstrapProperties-configClient'}]
-2026-02-13T09:13:24.966+03:00  INFO 8131 --- [saf-common-spring-boot-starter] [    Test worker] c.i.s.u.SafDashboardBffApplicationTests  : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2026-02-13T09:13:25.267+03:00  INFO 8131 --- [saf-common-spring-boot-starter] [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=3c1d0125-4dd7-38d2-823c-1ff7d2474680
-2026-02-13T09:13:25.383+03:00  WARN 8131 --- [saf-common-spring-boot-starter] [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'securityConfiguration' defined in file [/home/ican/projects/saf/saf-dashboard-bff/build/classes/java/main/com/ican/saf/ui/dsahboard/bff/config/SecurityConfiguration.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'authService' defined in file [/home/ican/projects/saf/saf-dashboard-bff/build/classes/java/main/com/ican/saf/ui/dsahboard/bff/web/AuthService.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'stringEncryptorDesede': Injection of autowired dependencies failed
-2026-02-13T09:13:25.403+03:00  INFO 8131 --- [saf-common-spring-boot-starter] [    Test worker] .s.b.a.l.ConditionEvaluationReportLogger : 
+2026-02-16T13:25:31.137+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:8761/config
+2026-02-16T13:25:32.196+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.c.c.ConfigServicePropertySourceLocator : Located environment: name=saf-dashboard-bff, profiles=[default], label=master, version=64c16b7034872bae37f02fe814b0353694055577, state=
+2026-02-16T13:25:32.197+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] b.c.PropertySourceBootstrapConfiguration : Located property source: [BootstrapPropertySource {name='bootstrapProperties-configClient'}, BootstrapPropertySource {name='bootstrapProperties-https://github.com/Simple-Architectural-Framework/saf-ui-config/saf-dashboard-bff-default.yml'}, BootstrapPropertySource {name='bootstrapProperties-https://github.com/Simple-Architectural-Framework/saf-ui-config/application-default.yml'}, BootstrapPropertySource {name='bootstrapProperties-https://github.com/Simple-Architectural-Framework/saf-ui-config/saf-dashboard-bff.yml'}, BootstrapPropertySource {name='bootstrapProperties-https://github.com/Simple-Architectural-Framework/saf-ui-config/application.yml'}]
+2026-02-16T13:25:32.206+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.i.s.u.SafDashboardBffApplicationTests  : The following 1 profile is active: &quot;default&quot;
+2026-02-16T13:25:32.495+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a3a901f6-82d7-3063-9650-9944361cb63a
+2026-02-16T13:25:32.506+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2026-02-16T13:25:32.506+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2026-02-16T13:25:32.506+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource test [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2026-02-16T13:25:32.506+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource gatewayHttpClientProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2026-02-16T13:25:32.507+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource Inlined Test Properties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2026-02-16T13:25:32.507+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2026-02-16T13:25:32.507+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletContextInitParams [org.springframework.web.context.support.ServletContextPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2026-02-16T13:25:32.507+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2026-02-16T13:25:32.507+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+2026-02-16T13:25:32.507+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrapProperties-configClient [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2026-02-16T13:25:32.507+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrapProperties-https://github.com/Simple-Architectural-Framework/saf-ui-config/saf-dashboard-bff-default.yml [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2026-02-16T13:25:32.507+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrapProperties-https://github.com/Simple-Architectural-Framework/saf-ui-config/application-default.yml [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2026-02-16T13:25:32.507+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrapProperties-https://github.com/Simple-Architectural-Framework/saf-ui-config/saf-dashboard-bff.yml [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2026-02-16T13:25:32.507+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrapProperties-https://github.com/Simple-Architectural-Framework/saf-ui-config/application.yml [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2026-02-16T13:25:32.507+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2026-02-16T13:25:32.507+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource cachedrandom [org.springframework.cloud.util.random.CachedRandomPropertySource] to EncryptablePropertySourceWrapper
+2026-02-16T13:25:32.507+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2026-02-16T13:25:32.508+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationInfo [org.springframework.boot.ApplicationInfoPropertySource] to EncryptableMapPropertySourceWrapper
+2026-02-16T13:25:32.508+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource springCloudDefaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2026-02-16T13:25:32.529+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2026-02-16T13:25:32.571+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2026-02-16T13:25:32.571+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2026-02-16T13:25:32.574+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.encryptor.DefaultLazyEncryptor     : String Encryptor custom Bean not found with name 'jasyptStringEncryptor'. Initializing Default String Encryptor
+2026-02-16T13:25:32.579+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.key-obtention-iterations, using default value: 1000
+2026-02-16T13:25:32.579+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.pool-size, using default value: 1
+2026-02-16T13:25:32.579+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.provider-name, using default value: null
+2026-02-16T13:25:32.580+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.provider-class-name, using default value: null
+2026-02-16T13:25:32.580+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.salt-generator-classname, using default value: org.jasypt.salt.RandomSaltGenerator
+2026-02-16T13:25:32.580+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.string-output-type, using default value: base64
+2026-02-16T13:25:32.613+03:00  WARN 104779 --- [saf-dashboard-bff] [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'OAuth2Controller' defined in file [/home/ican/projects/saf/saf-dashboard-bff/build/classes/java/main/com/ican/saf/ui/dsahboard/bff/web/OAuth2Controller.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'org.springframework.cloud.gateway.server.mvc.handler.GatewayRouterFunctions' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2026-02-16T13:25:32.632+03:00  INFO 104779 --- [saf-dashboard-bff] [    Test worker] .s.b.a.l.ConditionEvaluationReportLogger : 
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2026-02-13T09:13:25.414+03:00 ERROR 8131 --- [saf-common-spring-boot-starter] [    Test worker] o.s.boot.SpringApplication               : Application run failed
+2026-02-16T13:25:32.645+03:00 ERROR 104779 --- [saf-dashboard-bff] [    Test worker] o.s.b.d.LoggingFailureAnalysisReporter   : 
 
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'securityConfiguration' defined in file [/home/ican/projects/saf/saf-dashboard-bff/build/classes/java/main/com/ican/saf/ui/dsahboard/bff/config/SecurityConfiguration.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'authService' defined in file [/home/ican/projects/saf/saf-dashboard-bff/build/classes/java/main/com/ican/saf/ui/dsahboard/bff/web/AuthService.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'stringEncryptorDesede': Injection of autowired dependencies failed
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1381) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1218) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:307) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1122) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1093) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1030) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.2.jar:6.2.2]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.2.jar:6.2.2]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.2.jar:3.4.2]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.2.jar:3.4.2]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.2.jar:3.4.2]
-	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137) ~[spring-boot-test-3.4.2.jar:3.4.2]
-	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58) ~[spring-core-6.2.2.jar:6.2.2]
-	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46) ~[spring-core-6.2.2.jar:6.2.2]
-	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1461) ~[spring-boot-3.4.2.jar:3.4.2]
-	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:553) ~[spring-boot-test-3.4.2.jar:3.4.2]
-	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137) ~[spring-boot-test-3.4.2.jar:3.4.2]
-	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108) ~[spring-boot-test-3.4.2.jar:3.4.2]
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.2.2.jar:6.2.2]
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.2.2.jar:6.2.2]
-	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.2.2.jar:6.2.2]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.2.2.jar:6.2.2]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.2.2.jar:6.2.2]
-	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.2.2.jar:6.2.2]
-	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:160) ~[spring-test-6.2.2.jar:6.2.2]
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$12(ClassBasedTestDescriptor.java:378) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
-	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184) ~[na:na]
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[na:na]
-	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179) ~[na:na]
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[na:na]
-	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708) ~[na:na]
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[na:na]
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
-	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151) ~[na:na]
-	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174) ~[na:na]
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
-	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$7(ClassBasedTestDescriptor.java:290) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:279) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
-	at java.base/java.util.Optional.orElseGet(Optional.java:364) ~[na:na]
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$6(ClassBasedTestDescriptor.java:278) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
-	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$1(TestMethodTestDescriptor.java:105) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:104) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:68) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:128) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:128) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.11.4.jar:1.11.4]
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
-	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestDefinitionProcessor$CollectThenExecuteTestDefinitionConsumer.processAllTestClasses(JUnitPlatformTestDefinitionProcessor.java:172) ~[na:na]
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestDefinitionProcessor$CollectThenExecuteTestDefinitionConsumer.access$000(JUnitPlatformTestDefinitionProcessor.java:121) ~[na:na]
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestDefinitionProcessor.stop(JUnitPlatformTestDefinitionProcessor.java:114) ~[na:na]
-	at org.gradle.api.internal.tasks.testing.SuiteTestDefinitionProcessor.stop(SuiteTestDefinitionProcessor.java:64) ~[na:na]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
-	at org.gradle.internal.dispatch.MethodInvocation.invokeOn(MethodInvocation.java:77) ~[na:na]
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:28) ~[na:na]
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:19) ~[na:na]
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33) ~[na:na]
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:88) ~[na:na]
-	at jdk.proxy1/jdk.proxy1.$Proxy4.stop(Unknown Source) ~[na:na]
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:195) ~[na:na]
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:126) ~[na:na]
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:103) ~[na:na]
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:63) ~[na:na]
-	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56) ~[na:na]
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:122) ~[na:na]
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:72) ~[na:na]
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69) ~[gradle-worker.jar:na]
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74) ~[gradle-worker.jar:na]
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'authService' defined in file [/home/ican/projects/saf/saf-dashboard-bff/build/classes/java/main/com/ican/saf/ui/dsahboard/bff/web/AuthService.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'stringEncryptorDesede': Injection of autowired dependencies failed
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1381) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1218) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:307) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1573) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1519) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.2.jar:6.2.2]
-	... 114 common frames omitted
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'stringEncryptorDesede': Injection of autowired dependencies failed
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:515) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1445) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:307) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1573) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1519) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.2.jar:6.2.2]
-	... 127 common frames omitted
-Caused by: org.springframework.util.PlaceholderResolutionException: Could not resolve placeholder 'crypto.desede_encryption_scheme' in value &quot;${crypto.desede_encryption_scheme}&quot;
-	at org.springframework.util.PlaceholderResolutionException.withValue(PlaceholderResolutionException.java:81) ~[spring-core-6.2.2.jar:6.2.2]
-	at org.springframework.util.PlaceholderParser$ParsedValue.resolve(PlaceholderParser.java:416) ~[spring-core-6.2.2.jar:6.2.2]
-	at org.springframework.util.PlaceholderParser.replacePlaceholders(PlaceholderParser.java:128) ~[spring-core-6.2.2.jar:6.2.2]
-	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:118) ~[spring-core-6.2.2.jar:6.2.2]
-	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:114) ~[spring-core-6.2.2.jar:6.2.2]
-	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:255) ~[spring-core-6.2.2.jar:6.2.2]
-	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:226) ~[spring-core-6.2.2.jar:6.2.2]
-	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:201) ~[spring-context-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:963) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1541) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1519) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509) ~[spring-beans-6.2.2.jar:6.2.2]
-	... 138 common frames omitted
+***************************
+APPLICATION FAILED TO START
+***************************
 
-2026-02-13T09:13:25.419+03:00  WARN 8131 --- [saf-common-spring-boot-starter] [    Test worker] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] to prepare test instance [com.ican.saf.ui.SafDashboardBffApplicationTests@1d6f77d7]
+Description:
 
-java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@43786627 testClass = com.ican.saf.ui.SafDashboardBffApplicationTests, locations = [], classes = [com.ican.saf.ui.SafDashboardBffApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = [&quot;org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true&quot;], contextCustomizers = [org.springframework.boot.test.autoconfigure.OnFailureConditionReportContextCustomizerFactory$OnFailureConditionReportContextCustomizer@3ecd267f, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@6c5945a7, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@78365cfa, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@3a0d172f, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@6c25e6c4, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@4a11eb84, org.springframework.boot.test.web.reactor.netty.DisableReactorResourceFactoryGlobalResourcesContextCustomizerFactory$DisableReactorResourceFactoryGlobalResourcesContextCustomizerCustomizer@32811494, org.springframework.test.context.support.DynamicPropertiesContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestAnnotation@27a71110], resourceBasePath = &quot;src/main/webapp&quot;, contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+Parameter 0 of constructor in com.ican.saf.ui.dsahboard.bff.web.OAuth2Controller required a bean of type 'org.springframework.cloud.gateway.server.mvc.handler.GatewayRouterFunctions' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.cloud.gateway.server.mvc.handler.GatewayRouterFunctions' in your configuration.
+
+2026-02-16T13:25:32.647+03:00  WARN 104779 --- [saf-dashboard-bff] [    Test worker] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] to prepare test instance [com.ican.saf.ui.SafDashboardBffApplicationTests@fe42a09]
+
+java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@3f357c9d testClass = com.ican.saf.ui.SafDashboardBffApplicationTests, locations = [], classes = [com.ican.saf.ui.SafDashboardBffApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = [&quot;org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true&quot;], contextCustomizers = [org.springframework.boot.test.autoconfigure.OnFailureConditionReportContextCustomizerFactory$OnFailureConditionReportContextCustomizer@7966baa7, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@3401a114, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@58ffcbd7, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@319bc845, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@5e8ac0e1, org.springframework.boot.test.web.reactor.netty.DisableReactorResourceFactoryGlobalResourcesContextCustomizerFactory$DisableReactorResourceFactoryGlobalResourcesContextCustomizerCustomizer@52de51b6, org.springframework.test.context.support.DynamicPropertiesContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestAnnotation@5a5aef8a], resourceBasePath = &quot;src/main/webapp&quot;, contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:180) ~[spring-test-6.2.2.jar:6.2.2]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.2.2.jar:6.2.2]
 	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.2.2.jar:6.2.2]
@@ -455,7 +326,7 @@ java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMerge
 	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:72) ~[na:na]
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69) ~[gradle-worker.jar:na]
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74) ~[gradle-worker.jar:na]
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'securityConfiguration' defined in file [/home/ican/projects/saf/saf-dashboard-bff/build/classes/java/main/com/ican/saf/ui/dsahboard/bff/config/SecurityConfiguration.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'authService' defined in file [/home/ican/projects/saf/saf-dashboard-bff/build/classes/java/main/com/ican/saf/ui/dsahboard/bff/web/AuthService.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'stringEncryptorDesede': Injection of autowired dependencies failed
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'OAuth2Controller' defined in file [/home/ican/projects/saf/saf-dashboard-bff/build/classes/java/main/com/ican/saf/ui/dsahboard/bff/web/OAuth2Controller.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'org.springframework.cloud.gateway.server.mvc.handler.GatewayRouterFunctions' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1381) ~[spring-beans-6.2.2.jar:6.2.2]
@@ -484,53 +355,13 @@ Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Err
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.2.2.jar:6.2.2]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.2.2.jar:6.2.2]
 	... 88 common frames omitted
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'authService' defined in file [/home/ican/projects/saf/saf-dashboard-bff/build/classes/java/main/com/ican/saf/ui/dsahboard/bff/web/AuthService.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'stringEncryptorDesede': Injection of autowired dependencies failed
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1381) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1218) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:307) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1573) ~[spring-beans-6.2.2.jar:6.2.2]
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.cloud.gateway.server.mvc.handler.GatewayRouterFunctions' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:2144) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1594) ~[spring-beans-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1519) ~[spring-beans-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.2.jar:6.2.2]
 	... 114 common frames omitted
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'stringEncryptorDesede': Injection of autowired dependencies failed
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:515) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1445) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:307) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1573) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1519) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.2.jar:6.2.2]
-	... 127 common frames omitted
-Caused by: org.springframework.util.PlaceholderResolutionException: Could not resolve placeholder 'crypto.desede_encryption_scheme' in value &quot;${crypto.desede_encryption_scheme}&quot;
-	at org.springframework.util.PlaceholderResolutionException.withValue(PlaceholderResolutionException.java:81) ~[spring-core-6.2.2.jar:6.2.2]
-	at org.springframework.util.PlaceholderParser$ParsedValue.resolve(PlaceholderParser.java:416) ~[spring-core-6.2.2.jar:6.2.2]
-	at org.springframework.util.PlaceholderParser.replacePlaceholders(PlaceholderParser.java:128) ~[spring-core-6.2.2.jar:6.2.2]
-	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:118) ~[spring-core-6.2.2.jar:6.2.2]
-	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:114) ~[spring-core-6.2.2.jar:6.2.2]
-	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:255) ~[spring-core-6.2.2.jar:6.2.2]
-	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:226) ~[spring-core-6.2.2.jar:6.2.2]
-	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:201) ~[spring-context-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:963) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1541) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1519) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509) ~[spring-beans-6.2.2.jar:6.2.2]
-	... 138 common frames omitted
 
 </pre>
 <button class="clipboard-copy-btn" aria-label="Copy to clipboard" data-copy-element-id="root-0-test-stdout-com.ican.saf.ui.SafDashboardBffApplicationTests">Copy</button>
@@ -565,28 +396,6 @@ Positive matches:
 
    AutoServiceRegistrationConfiguration matched:
       - @ConditionalOnProperty (spring.cloud.service-registry.auto-registration.enabled) matched (OnPropertyCondition)
-
-   ClientHttpConnectorAutoConfiguration matched:
-      - @ConditionalOnClass found required class 'org.springframework.web.reactive.function.client.WebClient' (OnClassCondition)
-
-   ClientHttpConnectorAutoConfiguration#webClientHttpConnector matched:
-      - @ConditionalOnMissingBean (types: org.springframework.http.client.reactive.ClientHttpConnector; SearchStrategy: all) did not find any beans (OnBeanCondition)
-
-   ClientHttpConnectorAutoConfiguration#webClientHttpConnectorCustomizer matched:
-      - @ConditionalOnBean (types: org.springframework.http.client.reactive.ClientHttpConnector; SearchStrategy: all) found bean 'webClientHttpConnector' (OnBeanCondition)
-
-   ClientHttpConnectorFactoryConfiguration.ReactorNetty matched:
-      - @ConditionalOnClass found required class 'reactor.netty.http.client.HttpClient' (OnClassCondition)
-      - @ConditionalOnMissingBean (types: org.springframework.boot.autoconfigure.web.reactive.function.client.ClientHttpConnectorFactory; SearchStrategy: all) did not find any beans (OnBeanCondition)
-
-   CodecsAutoConfiguration matched:
-      - @ConditionalOnClass found required classes 'org.springframework.http.codec.CodecConfigurer', 'org.springframework.web.reactive.function.client.WebClient' (OnClassCondition)
-
-   CodecsAutoConfiguration.JacksonCodecConfiguration matched:
-      - @ConditionalOnClass found required class 'com.fasterxml.jackson.databind.ObjectMapper' (OnClassCondition)
-
-   CodecsAutoConfiguration.JacksonCodecConfiguration#jacksonCodecCustomizer matched:
-      - @ConditionalOnBean (types: com.fasterxml.jackson.databind.ObjectMapper; SearchStrategy: all) found bean 'jacksonObjectMapper' (OnBeanCondition)
 
    CompatibilityVerifierAutoConfiguration matched:
       - @ConditionalOnProperty (spring.cloud.compatibility-verifier.enabled) matched (OnPropertyCondition)
@@ -647,251 +456,68 @@ Positive matches:
    FeignAutoConfiguration.DefaultFeignTargeterConfiguration#feignTargeter matched:
       - @ConditionalOnMissingBean (types: org.springframework.cloud.openfeign.Targeter; SearchStrategy: all) did not find any beans (OnBeanCondition)
 
-   GatewayAutoConfiguration matched:
-      - @ConditionalOnClass found required class 'org.springframework.web.reactive.DispatcherHandler' (OnClassCondition)
-      - @ConditionalOnProperty (spring.cloud.gateway.enabled) matched (OnPropertyCondition)
-
-   GatewayAutoConfiguration#adaptCachedBodyGlobalFilter matched:
-      - matched (OnEnabledGlobalFilter)
-
-   GatewayAutoConfiguration#addRequestHeaderGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#addRequestHeadersIfNotPresentGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#addRequestParameterGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#addResponseHeaderGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#afterRoutePredicateFactory matched:
-      - matched (OnEnabledPredicate)
-
-   GatewayAutoConfiguration#beforeRoutePredicateFactory matched:
-      - matched (OnEnabledPredicate)
-
-   GatewayAutoConfiguration#betweenRoutePredicateFactory matched:
-      - matched (OnEnabledPredicate)
-
-   GatewayAutoConfiguration#cacheRequestBodyGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#cachedCompositeRouteLocator matched:
-      - @ConditionalOnMissingBean (names: cachedCompositeRouteLocator; SearchStrategy: all) did not find any beans (OnBeanCondition)
-
-   GatewayAutoConfiguration#cloudFoundryRouteServiceRoutePredicateFactory matched:
-      - matched (OnEnabledPredicate)
-
-   GatewayAutoConfiguration#cookieRoutePredicateFactory matched:
-      - matched (OnEnabledPredicate)
-
-   GatewayAutoConfiguration#corsGatewayFilterApplicationListener matched:
-      - @ConditionalOnProperty (spring.cloud.gateway.globalcors.enabled) matched (OnPropertyCondition)
-
-   GatewayAutoConfiguration#dedupeResponseHeaderGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#filteringWebHandler matched:
-      - @ConditionalOnMissingBean (types: org.springframework.cloud.gateway.handler.FilteringWebHandler; SearchStrategy: all) did not find any beans (OnBeanCondition)
-
-   GatewayAutoConfiguration#forwardPathFilter matched:
-      - matched (OnEnabledGlobalFilter)
-
-   GatewayAutoConfiguration#forwardRoutingFilter matched:
-      - matched (OnEnabledGlobalFilter)
-
-   GatewayAutoConfiguration#forwardedHeadersFilter matched:
-      - @ConditionalOnProperty (spring.cloud.gateway.forwarded.enabled) matched (OnPropertyCondition)
-
-   GatewayAutoConfiguration#gRPCRequestHeadersFilter matched:
-      - @ConditionalOnProperty (server.http2.enabled) matched (OnPropertyCondition)
-
-   GatewayAutoConfiguration#gRPCResponseHeadersFilter matched:
-      - @ConditionalOnProperty (server.http2.enabled) matched (OnPropertyCondition)
-
-   GatewayAutoConfiguration#headerRoutePredicateFactory matched:
-      - matched (OnEnabledPredicate)
-
-   GatewayAutoConfiguration#hostRoutePredicateFactory matched:
-      - matched (OnEnabledPredicate)
-
-   GatewayAutoConfiguration#inMemoryRouteDefinitionRepository matched:
-      - @ConditionalOnMissingBean (types: org.springframework.cloud.gateway.route.RouteDefinitionRepository; SearchStrategy: all) did not find any beans (OnBeanCondition)
-
-   GatewayAutoConfiguration#mapRequestHeaderGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#methodRoutePredicateFactory matched:
-      - matched (OnEnabledPredicate)
-
-   GatewayAutoConfiguration#modifyRequestBodyGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#modifyResponseBodyGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#pathRoutePredicateFactory matched:
-      - matched (OnEnabledPredicate)
-
-   GatewayAutoConfiguration#prefixPathGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#preserveHostHeaderGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#propertiesRouteDefinitionLocator matched:
-      - @ConditionalOnMissingBean (types: org.springframework.cloud.gateway.config.PropertiesRouteDefinitionLocator; SearchStrategy: all) did not find any beans (OnBeanCondition)
-
-   GatewayAutoConfiguration#queryRoutePredicateFactory matched:
-      - matched (OnEnabledPredicate)
-
-   GatewayAutoConfiguration#readBodyPredicateFactory matched:
-      - matched (OnEnabledPredicate)
-
-   GatewayAutoConfiguration#redirectToGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#remoteAddrRoutePredicateFactory matched:
-      - matched (OnEnabledPredicate)
-
-   GatewayAutoConfiguration#removeCachedBodyFilter matched:
-      - matched (OnEnabledGlobalFilter)
-
-   GatewayAutoConfiguration#removeJsonAttributesResponseBodyGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#removeRequestHeaderGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#removeRequestParameterGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#removeResponseHeaderGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#requestHeaderSizeGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#requestHeaderToRequestUriGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#requestSizeGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#retryGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#rewriteLocationResponseHeaderGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#rewritePathGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#rewriteRequestParameterGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#rewriteResponseHeaderGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#routePredicateHandlerMapping matched:
-      - @ConditionalOnMissingBean (types: org.springframework.cloud.gateway.handler.RoutePredicateHandlerMapping; SearchStrategy: all) did not find any beans (OnBeanCondition)
-
-   GatewayAutoConfiguration#routeRefreshListener matched:
-      - @ConditionalOnClass found required class 'org.springframework.cloud.client.discovery.event.HeartbeatMonitor' (OnClassCondition)
-      - @ConditionalOnProperty (spring.cloud.gateway..route-refresh-listener.enabled) matched (OnPropertyCondition)
-
-   GatewayAutoConfiguration#routeToRequestUrlFilter matched:
-      - matched (OnEnabledGlobalFilter)
-
-   GatewayAutoConfiguration#saveSessionGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#secureHeadersGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#setPathGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#setRequestHeaderGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#setRequestHostHeaderGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#setResponseHeaderGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#setStatusGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#stripPrefixGatewayFilterFactory matched:
-      - matched (OnEnabledFilter)
-
-   GatewayAutoConfiguration#webSocketService matched:
-      - matched (OnEnabledGlobalFilter)
-
-   GatewayAutoConfiguration#websocketRoutingFilter matched:
-      - matched (OnEnabledGlobalFilter)
-
-   GatewayAutoConfiguration#weightCalculatorWebFilter matched:
-      - matched (OnEnabledPredicate)
-
-   GatewayAutoConfiguration#weightRoutePredicateFactory matched:
-      - matched (OnEnabledPredicate)
-
-   GatewayAutoConfiguration#xForwardedHeadersFilter matched:
-      - @ConditionalOnProperty (spring.cloud.gateway.x-forwarded.enabled) matched (OnPropertyCondition)
-
-   GatewayAutoConfiguration#xForwardedRemoteAddrRoutePredicateFactory matched:
-      - matched (OnEnabledPredicate)
-
-   GatewayAutoConfiguration.NettyConfiguration matched:
-      - @ConditionalOnClass found required class 'reactor.netty.http.client.HttpClient' (OnClassCondition)
-
-   GatewayAutoConfiguration.NettyConfiguration#gatewayHttpClientFactory matched:
-      - @ConditionalOnMissingBean (types: reactor.netty.http.client.HttpClient,org.springframework.cloud.gateway.config.HttpClientFactory; SearchStrategy: all) did not find any beans (OnBeanCondition)
-
-   GatewayAutoConfiguration.NettyConfiguration#nettyWriteResponseFilter matched:
-      - matched (OnEnabledGlobalFilter)
-
-   GatewayAutoConfiguration.NettyConfiguration#reactorNettyRequestUpgradeStrategy matched:
-      - matched (OnEnabledGlobalFilter)
-
-   GatewayAutoConfiguration.NettyConfiguration#reactorNettyWebSocketClient matched:
-      - matched (OnEnabledGlobalFilter)
-
-   GatewayAutoConfiguration.NettyConfiguration#routingFilter matched:
-      - matched (OnEnabledGlobalFilter)
-
-   GatewayClassPathWarningAutoConfiguration matched:
-      - @ConditionalOnProperty (spring.cloud.gateway.enabled) matched (OnPropertyCondition)
-
-   GatewayClassPathWarningAutoConfiguration.SpringMvcFoundOnClasspathConfiguration matched:
-      - @ConditionalOnClass found required class 'org.springframework.web.servlet.DispatcherServlet' (OnClassCondition)
+   GatewayMultipartAutoConfiguration matched:
+      - @ConditionalOnClass found required classes 'jakarta.servlet.Servlet', 'org.springframework.web.multipart.support.StandardServletMultipartResolver', 'jakarta.servlet.MultipartConfigElement' (OnClassCondition)
       - found 'session' scope (OnWebApplicationCondition)
+      - @ConditionalOnProperty (spring.servlet.multipart.enabled) matched (OnPropertyCondition)
 
-   GatewayDiscoveryClientAutoConfiguration matched:
-      - @ConditionalOnClass found required classes 'org.springframework.web.reactive.DispatcherHandler', 'org.springframework.cloud.client.discovery.composite.CompositeDiscoveryClientAutoConfiguration' (OnClassCondition)
-      - @ConditionalOnProperty (spring.cloud.gateway.enabled) matched (OnPropertyCondition)
+   GatewayMultipartAutoConfiguration#gatewayMvcMultipartResolver matched:
+      - @ConditionalOnMissingBean (types: org.springframework.web.multipart.MultipartResolver; SearchStrategy: all) did not find any beans (OnBeanCondition)
 
-   GatewayDiscoveryClientAutoConfiguration.ReactiveDiscoveryClientRouteDefinitionLocatorConfiguration matched:
-      - @ConditionalOnProperty (spring.cloud.discovery.reactive.enabled) matched (OnPropertyCondition)
+   GatewayServerMvcAutoConfiguration matched:
+      - @ConditionalOnProperty (spring.cloud.gateway.mvc.enabled) matched (OnPropertyCondition)
 
-   GatewayNoLoadBalancerClientAutoConfiguration matched:
-      - @ConditionalOnMissingClass did not find unwanted class 'org.springframework.cloud.loadbalancer.core.ReactorLoadBalancer' (OnClassCondition)
-      - @ConditionalOnMissingBean (types: org.springframework.cloud.client.loadbalancer.reactive.ReactiveLoadBalancer; SearchStrategy: all) did not find any beans (OnBeanCondition)
+   GatewayServerMvcAutoConfiguration#formFilter matched:
+      - @ConditionalOnProperty (spring.cloud.gateway.mvc.form-filter.enabled) matched (OnPropertyCondition)
+      - @ConditionalOnMissingBean (types: org.springframework.cloud.gateway.server.mvc.filter.FormFilter; SearchStrategy: all) did not find any beans (OnBeanCondition)
 
-   GatewayNoLoadBalancerClientAutoConfiguration#noLoadBalancerClientFilter matched:
-      - @ConditionalOnMissingBean (types: org.springframework.cloud.gateway.filter.ReactiveLoadBalancerClientFilter; SearchStrategy: all) did not find any beans (OnBeanCondition)
+   GatewayServerMvcAutoConfiguration#forwardedRequestHeadersFilter matched:
+      - @ConditionalOnProperty (spring.cloud.gateway.mvc.forwarded-request-headers-filter.enabled) matched (OnPropertyCondition)
+      - @ConditionalOnMissingBean (types: org.springframework.cloud.gateway.server.mvc.filter.ForwardedRequestHeadersFilter; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   GatewayServerMvcAutoConfiguration#gatewayMvcProperties matched:
+      - @ConditionalOnMissingBean (types: org.springframework.cloud.gateway.server.mvc.config.GatewayMvcProperties; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   GatewayServerMvcAutoConfiguration#proxyExchangeHandlerFunction matched:
+      - @ConditionalOnMissingBean (types: org.springframework.cloud.gateway.server.mvc.handler.ProxyExchangeHandlerFunction; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   GatewayServerMvcAutoConfiguration#removeContentLengthRequestHeadersFilter matched:
+      - @ConditionalOnProperty (spring.cloud.gateway.mvc.remove-content-length-request-headers-filter.enabled) matched (OnPropertyCondition)
+      - @ConditionalOnMissingBean (types: org.springframework.cloud.gateway.server.mvc.filter.RemoveContentLengthRequestHeadersFilter; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   GatewayServerMvcAutoConfiguration#removeHopByHopRequestHeadersFilter matched:
+      - @ConditionalOnProperty (spring.cloud.gateway.mvc.remove-hop-by-hop-request-headers-filter.enabled) matched (OnPropertyCondition)
+      - @ConditionalOnMissingBean (types: org.springframework.cloud.gateway.server.mvc.filter.RemoveHopByHopRequestHeadersFilter; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   GatewayServerMvcAutoConfiguration#removeHopByHopResponseHeadersFilter matched:
+      - @ConditionalOnProperty (spring.cloud.gateway.mvc.remove-hop-by-hop-response-headers-filter.enabled) matched (OnPropertyCondition)
+      - @ConditionalOnMissingBean (types: org.springframework.cloud.gateway.server.mvc.filter.RemoveHopByHopResponseHeadersFilter; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   GatewayServerMvcAutoConfiguration#removeHttp2StatusResponseHeadersFilter matched:
+      - @ConditionalOnProperty (spring.cloud.gateway.mvc.remove-http2-status-response-headers-filter.enabled) matched (OnPropertyCondition)
+      - @ConditionalOnMissingBean (types: org.springframework.cloud.gateway.server.mvc.filter.RemoveHttp2StatusResponseHeadersFilter; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   GatewayServerMvcAutoConfiguration#restClientProxyExchange matched:
+      - @ConditionalOnMissingBean (types: org.springframework.cloud.gateway.server.mvc.handler.ProxyExchange; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   GatewayServerMvcAutoConfiguration#transferEncodingNormalizationRequestHeadersFilter matched:
+      - @ConditionalOnProperty (spring.cloud.gateway.mvc.transfer-encoding-normalization-request-headers-filter.enabled) matched (OnPropertyCondition)
+      - @ConditionalOnMissingBean (types: org.springframework.cloud.gateway.server.mvc.filter.TransferEncodingNormalizationRequestHeadersFilter; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   GatewayServerMvcAutoConfiguration#weightCalculatorFilter matched:
+      - @ConditionalOnProperty (spring.cloud.gateway.mvc.weight-calculator-filter.enabled) matched (OnPropertyCondition)
+      - @ConditionalOnMissingBean (types: org.springframework.cloud.gateway.server.mvc.filter.WeightCalculatorFilter; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   GatewayServerMvcAutoConfiguration#xForwardedRequestHeadersFilter matched:
+      - @ConditionalOnProperty (spring.cloud.gateway.mvc.x-forwarded-request-headers-filter..enabled) matched (OnPropertyCondition)
+      - @ConditionalOnMissingBean (types: org.springframework.cloud.gateway.server.mvc.filter.XForwardedRequestHeadersFilter; SearchStrategy: all) did not find any beans (OnBeanCondition)
 
    GenericCacheConfiguration matched:
       - Cache org.springframework.boot.autoconfigure.cache.GenericCacheConfiguration automatic cache type (CacheCondition)
 
    HttpClientAutoConfiguration matched:
       - @ConditionalOnClass found required class 'org.springframework.http.client.ClientHttpRequestFactory' (OnClassCondition)
-      - NoneNestedConditions 0 matched 1 did not; NestedCondition on NotReactiveWebApplicationCondition.ReactiveWebApplication not a reactive web application (NotReactiveWebApplicationCondition)
+      - NoneNestedConditions 0 matched 1 did not; NestedCondition on NotReactiveWebApplicationCondition.ReactiveWebApplication did not find reactive web application classes (NotReactiveWebApplicationCondition)
 
    HttpClientAutoConfiguration#clientHttpRequestFactoryBuilder matched:
       - @ConditionalOnMissingBean (types: org.springframework.boot.http.client.ClientHttpRequestFactoryBuilder; SearchStrategy: all) did not find any beans (OnBeanCondition)
@@ -909,7 +535,7 @@ Positive matches:
 
    HttpMessageConvertersAutoConfiguration matched:
       - @ConditionalOnClass found required class 'org.springframework.http.converter.HttpMessageConverter' (OnClassCondition)
-      - NoneNestedConditions 0 matched 1 did not; NestedCondition on HttpMessageConvertersAutoConfiguration.NotReactiveWebApplicationCondition.ReactiveWebApplication not a reactive web application (HttpMessageConvertersAutoConfiguration.NotReactiveWebApplicationCondition)
+      - NoneNestedConditions 0 matched 1 did not; NestedCondition on HttpMessageConvertersAutoConfiguration.NotReactiveWebApplicationCondition.ReactiveWebApplication did not find reactive web application classes (HttpMessageConvertersAutoConfiguration.NotReactiveWebApplicationCondition)
 
    HttpMessageConvertersAutoConfiguration#messageConverters matched:
       - @ConditionalOnMissingBean (types: org.springframework.boot.autoconfigure.http.HttpMessageConverters; SearchStrategy: all) did not find any beans (OnBeanCondition)
@@ -966,30 +592,11 @@ Positive matches:
    MultipartAutoConfiguration#multipartConfigElement matched:
       - @ConditionalOnMissingBean (types: jakarta.servlet.MultipartConfigElement; SearchStrategy: all) did not find any beans (OnBeanCondition)
 
-   MultipartAutoConfiguration#multipartResolver matched:
-      - @ConditionalOnMissingBean (types: org.springframework.web.multipart.MultipartResolver; SearchStrategy: all) did not find any beans (OnBeanCondition)
-
-   NettyAutoConfiguration matched:
-      - @ConditionalOnClass found required class 'io.netty.util.NettyRuntime' (OnClassCondition)
-
    NoOpCacheConfiguration matched:
       - Cache org.springframework.boot.autoconfigure.cache.NoOpCacheConfiguration automatic cache type (CacheCondition)
 
    PropertyPlaceholderAutoConfiguration#propertySourcesPlaceholderConfigurer matched:
       - @ConditionalOnMissingBean (types: org.springframework.context.support.PropertySourcesPlaceholderConfigurer; SearchStrategy: current) did not find any beans (OnBeanCondition)
-
-   ReactiveCompositeDiscoveryClientAutoConfiguration matched:
-      - @ConditionalOnClass found required class 'org.springframework.web.reactive.function.client.WebClient' (OnClassCondition)
-      - @ConditionalOnProperty (spring.cloud.discovery.enabled) matched; @ConditionalOnProperty (spring.cloud.discovery.reactive.enabled) matched (OnPropertyCondition)
-
-   ReactiveSecurityAutoConfiguration matched:
-      - @ConditionalOnClass found required classes 'reactor.core.publisher.Flux', 'org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity', 'org.springframework.security.web.server.WebFilterChainProxy', 'org.springframework.web.reactive.config.WebFluxConfigurer' (OnClassCondition)
-
-   ReactorAutoConfiguration matched:
-      - @ConditionalOnClass found required class 'reactor.core.publisher.Hooks' (OnClassCondition)
-
-   ReactorNettyConfigurations.ReactorResourceFactoryConfiguration#reactorResourceFactory matched:
-      - @ConditionalOnMissingBean (types: org.springframework.http.client.ReactorResourceFactory; SearchStrategy: all) did not find any beans (OnBeanCondition)
 
    RefreshAutoConfiguration matched:
       - @ConditionalOnClass found required class 'org.springframework.cloud.context.scope.refresh.RefreshScope' (OnClassCondition)
@@ -1015,7 +622,7 @@ Positive matches:
 
    RestClientAutoConfiguration matched:
       - @ConditionalOnClass found required class 'org.springframework.web.client.RestClient' (OnClassCondition)
-      - NoneNestedConditions 0 matched 1 did not; NestedCondition on NotReactiveWebApplicationCondition.ReactiveWebApplication not a reactive web application (NotReactiveWebApplicationCondition)
+      - NoneNestedConditions 0 matched 1 did not; NestedCondition on NotReactiveWebApplicationCondition.ReactiveWebApplication did not find reactive web application classes (NotReactiveWebApplicationCondition)
 
    RestClientAutoConfiguration#httpMessageConvertersRestClientCustomizer matched:
       - @ConditionalOnMissingBean (types: org.springframework.boot.autoconfigure.web.client.HttpMessageConvertersRestClientCustomizer; SearchStrategy: all) did not find any beans (OnBeanCondition)
@@ -1031,7 +638,7 @@ Positive matches:
 
    RestTemplateAutoConfiguration matched:
       - @ConditionalOnClass found required class 'org.springframework.web.client.RestTemplate' (OnClassCondition)
-      - NoneNestedConditions 0 matched 1 did not; NestedCondition on NotReactiveWebApplicationCondition.ReactiveWebApplication not a reactive web application (NotReactiveWebApplicationCondition)
+      - NoneNestedConditions 0 matched 1 did not; NestedCondition on NotReactiveWebApplicationCondition.ReactiveWebApplication did not find reactive web application classes (NotReactiveWebApplicationCondition)
 
    RestTemplateAutoConfiguration#restTemplateBuilder matched:
       - @ConditionalOnMissingBean (types: org.springframework.boot.web.client.RestTemplateBuilder; SearchStrategy: all) did not find any beans (OnBeanCondition)
@@ -1065,10 +672,6 @@ Positive matches:
 
    SimpleDiscoveryClientAutoConfiguration#simpleDiscoveryProperties matched:
       - @ConditionalOnMissingBean (types: org.springframework.cloud.client.discovery.simple.SimpleDiscoveryProperties; SearchStrategy: all) did not find any beans (OnBeanCondition)
-
-   SimpleReactiveDiscoveryClientAutoConfiguration matched:
-      - @ConditionalOnClass found required class 'org.springframework.web.reactive.function.client.WebClient' (OnClassCondition)
-      - @ConditionalOnProperty (spring.cloud.discovery.enabled) matched; @ConditionalOnProperty (spring.cloud.discovery.reactive.enabled) matched (OnPropertyCondition)
 
    SpringBootWebSecurityConfiguration matched:
       - found 'session' scope (OnWebApplicationCondition)
@@ -1121,21 +724,6 @@ Positive matches:
 
    ValidationAutoConfiguration#methodValidationPostProcessor matched:
       - @ConditionalOnMissingBean (types: org.springframework.validation.beanvalidation.MethodValidationPostProcessor; SearchStrategy: current) did not find any beans (OnBeanCondition)
-
-   WebClientAutoConfiguration matched:
-      - @ConditionalOnClass found required class 'org.springframework.web.reactive.function.client.WebClient' (OnClassCondition)
-
-   WebClientAutoConfiguration#webClientBuilder matched:
-      - @ConditionalOnMissingBean (types: org.springframework.web.reactive.function.client.WebClient$Builder; SearchStrategy: all) did not find any beans (OnBeanCondition)
-
-   WebClientAutoConfiguration#webClientSsl matched:
-      - @ConditionalOnBean (types: org.springframework.boot.ssl.SslBundles; SearchStrategy: all) found bean 'sslBundleRegistry'; @ConditionalOnMissingBean (types: org.springframework.boot.autoconfigure.web.reactive.function.client.WebClientSsl; SearchStrategy: all) did not find any beans (OnBeanCondition)
-
-   WebClientAutoConfiguration.WebClientCodecsConfiguration matched:
-      - @ConditionalOnBean (types: org.springframework.boot.web.codec.CodecCustomizer; SearchStrategy: all) found beans 'jacksonCodecCustomizer', 'defaultCodecCustomizer' (OnBeanCondition)
-
-   WebClientAutoConfiguration.WebClientCodecsConfiguration#exchangeStrategiesCustomizer matched:
-      - @ConditionalOnMissingBean (types: org.springframework.boot.autoconfigure.web.reactive.function.client.WebClientCodecCustomizer; SearchStrategy: all) did not find any beans (OnBeanCondition)
 
    WebMvcAutoConfiguration matched:
       - @ConditionalOnClass found required classes 'jakarta.servlet.Servlet', 'org.springframework.web.servlet.DispatcherServlet', 'org.springframework.web.servlet.config.annotation.WebMvcConfigurer' (OnClassCondition)
@@ -1236,19 +824,17 @@ Negative matches:
       Did not match:
          - @ConditionalOnClass did not find required class 'com.datastax.oss.driver.api.core.CqlSession' (OnClassCondition)
 
-   ClientHttpConnectorFactoryConfiguration.HttpClient5:
+   ClientHttpConnectorAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.apache.hc.core5.reactive.ReactiveResponseConsumer' (OnClassCondition)
-
-   ClientHttpConnectorFactoryConfiguration.JdkClient:
-      Did not match:
-         - @ConditionalOnMissingBean (types: org.springframework.boot.autoconfigure.web.reactive.function.client.ClientHttpConnectorFactory; SearchStrategy: all) found beans of type 'org.springframework.boot.autoconfigure.web.reactive.function.client.ClientHttpConnectorFactory' reactorClientHttpConnectorFactory (OnBeanCondition)
-      Matched:
-         - @ConditionalOnClass found required class 'java.net.http.HttpClient' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.web.reactive.function.client.WebClient' (OnClassCondition)
 
    CloudHypermediaAutoConfiguration:
       Did not match:
          - @ConditionalOnClass did not find required class 'org.springframework.hateoas.Link' (OnClassCondition)
+
+   CodecsAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.web.reactive.function.client.WebClient' (OnClassCondition)
 
    CommonsClientAutoConfiguration.ActuatorConfiguration:
       Did not match:
@@ -1340,9 +926,7 @@ Negative matches:
 
    ErrorWebFluxAutoConfiguration:
       Did not match:
-         - not a reactive web application (OnWebApplicationCondition)
-      Matched:
-         - @ConditionalOnClass found required class 'org.springframework.web.reactive.config.WebFluxConfigurer' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.web.reactive.config.WebFluxConfigurer' (OnClassCondition)
 
    FeignAcceptGzipEncodingAutoConfiguration:
       Did not match:
@@ -1403,58 +987,6 @@ Negative matches:
    FreeMarkerAutoConfiguration:
       Did not match:
          - @ConditionalOnClass did not find required class 'freemarker.template.Configuration' (OnClassCondition)
-
-   GatewayAutoConfiguration#grpcSslConfigurer:
-      Did not match:
-         - @ConditionalOnClass did not find required class 'io.grpc.Channel' (OnClassCondition)
-
-   GatewayAutoConfiguration#jsonToGRPCFilterFactory:
-      Did not match:
-         - @ConditionalOnClass did not find required class 'io.grpc.Channel' (OnClassCondition)
-
-   GatewayAutoConfiguration#principalNameKeyResolver:
-      Did not match:
-         - @ConditionalOnBean (types: org.springframework.cloud.gateway.filter.ratelimit.RateLimiter; SearchStrategy: all) did not find any beans of type org.springframework.cloud.gateway.filter.ratelimit.RateLimiter (OnBeanCondition)
-
-   GatewayAutoConfiguration#requestRateLimiterGatewayFilterFactory:
-      Did not match:
-         - @ConditionalOnBean (types: org.springframework.cloud.gateway.filter.ratelimit.RateLimiter,org.springframework.cloud.gateway.filter.ratelimit.KeyResolver; SearchStrategy: all) did not find any beans of type org.springframework.cloud.gateway.filter.ratelimit.RateLimiter, org.springframework.cloud.gateway.filter.ratelimit.KeyResolver (OnBeanCondition)
-
-   GatewayAutoConfiguration.GatewayActuatorConfiguration:
-      Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.boot.actuate.health.Health' (OnClassCondition)
-
-   GatewayAutoConfiguration.NettyConfiguration#nettyServerWiretapCustomizer:
-      Did not match:
-         - @ConditionalOnProperty (spring.cloud.gateway.httpserver.wiretap) did not find property 'spring.cloud.gateway.httpserver.wiretap' (OnPropertyCondition)
-
-   GatewayAutoConfiguration.TokenRelayConfiguration:
-      Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.security.oauth2.client.OAuth2AuthorizedClient' (OnClassCondition)
-
-   GatewayClassPathWarningAutoConfiguration.WebfluxMissingFromClasspathConfiguration:
-      Did not match:
-         - @ConditionalOnMissingClass found unwanted class 'org.springframework.web.reactive.DispatcherHandler' (OnClassCondition)
-
-   GatewayDiscoveryClientAutoConfiguration.ReactiveDiscoveryClientRouteDefinitionLocatorConfiguration#discoveryClientRouteDefinitionLocator:
-      Did not match:
-         - @ConditionalOnProperty (spring.cloud.gateway.discovery.locator.enabled) did not find property 'spring.cloud.gateway.discovery.locator.enabled' (OnPropertyCondition)
-
-   GatewayMetricsAutoConfiguration:
-      Did not match:
-         - @ConditionalOnClass did not find required class 'io.micrometer.core.instrument.MeterRegistry' (OnClassCondition)
-
-   GatewayReactiveLoadBalancerClientAutoConfiguration:
-      Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration' (OnClassCondition)
-
-   GatewayRedisAutoConfiguration:
-      Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.core.RedisTemplate' (OnClassCondition)
-
-   GatewayResilience4JCircuitBreakerAutoConfiguration:
-      Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.cloud.circuitbreaker.resilience4j.ReactiveResilience4JAutoConfiguration' (OnClassCondition)
 
    GraphQlAutoConfiguration:
       Did not match:
@@ -1530,9 +1062,7 @@ Negative matches:
 
    HttpHandlerAutoConfiguration:
       Did not match:
-         - not a reactive web application (OnWebApplicationCondition)
-      Matched:
-         - @ConditionalOnClass found required classes 'org.springframework.web.reactive.DispatcherHandler', 'org.springframework.http.server.reactive.HttpHandler' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.web.reactive.DispatcherHandler' (OnClassCondition)
 
    HypermediaAutoConfiguration:
       Did not match:
@@ -1642,13 +1172,7 @@ Negative matches:
 
    LoadBalancerBeanPostProcessorAutoConfiguration:
       Did not match:
-         - AnyNestedCondition 0 matched 2 did not; NestedCondition on LoadBalancerBeanPostProcessorAutoConfiguration.OnAnyLoadBalancerImplementationPresentCondition.LoadBalancerClientPresent @ConditionalOnBean (types: org.springframework.cloud.client.loadbalancer.LoadBalancerClient; SearchStrategy: all) did not find any beans of type org.springframework.cloud.client.loadbalancer.LoadBalancerClient; NestedCondition on LoadBalancerBeanPostProcessorAutoConfiguration.OnAnyLoadBalancerImplementationPresentCondition.ReactiveLoadBalancerFactoryPresent @ConditionalOnBean (types: org.springframework.cloud.client.loadbalancer.reactive.ReactiveLoadBalancer$Factory; SearchStrategy: all) did not find any beans of type org.springframework.cloud.client.loadbalancer.reactive.ReactiveLoadBalancer$Factory (LoadBalancerBeanPostProcessorAutoConfiguration.OnAnyLoadBalancerImplementationPresentCondition)
-      Matched:
-         - @ConditionalOnClass found required class 'org.springframework.web.reactive.function.client.WebClient' (OnClassCondition)
-
-   LocalResponseCacheAutoConfiguration:
-      Did not match:
-         - @ConditionalOnClass did not find required class 'com.github.benmanes.caffeine.cache.Caffeine' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.web.reactive.function.client.WebClient' (OnClassCondition)
 
    MailSenderAutoConfiguration:
       Did not match:
@@ -1686,6 +1210,10 @@ Negative matches:
       Did not match:
          - @ConditionalOnClass did not find required class 'com.mongodb.client.MongoClient' (OnClassCondition)
 
+   MultipartAutoConfiguration#multipartResolver:
+      Did not match:
+         - @ConditionalOnMissingBean (types: org.springframework.web.multipart.MultipartResolver; SearchStrategy: all) found beans of type 'org.springframework.web.multipart.MultipartResolver' multipartResolver (OnBeanCondition)
+
    MustacheAutoConfiguration:
       Did not match:
          - @ConditionalOnClass did not find required class 'com.samskivert.mustache.Mustache' (OnClassCondition)
@@ -1709,6 +1237,10 @@ Negative matches:
    Neo4jRepositoriesAutoConfiguration:
       Did not match:
          - @ConditionalOnClass did not find required class 'org.neo4j.driver.Driver' (OnClassCondition)
+
+   NettyAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'io.netty.util.NettyRuntime' (OnClassCondition)
 
    OAuth2AuthorizationServerAutoConfiguration:
       Did not match:
@@ -1796,7 +1328,7 @@ Negative matches:
 
    RSocketStrategiesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'io.rsocket.RSocket' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'io.netty.buffer.PooledByteBufAllocator' (OnClassCondition)
 
    RabbitAutoConfiguration:
       Did not match:
@@ -1804,7 +1336,11 @@ Negative matches:
 
    ReactiveCommonsClientAutoConfiguration.ReactiveDiscoveryLoadBalancerConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.boot.actuate.health.ReactiveHealthIndicator' (OnClassCondition)
+         - @ConditionalOnClass did not find required classes 'org.springframework.boot.actuate.health.ReactiveHealthIndicator', 'org.springframework.web.reactive.function.client.WebClient' (OnClassCondition)
+
+   ReactiveCompositeDiscoveryClientAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.web.reactive.function.client.WebClient' (OnClassCondition)
 
    ReactiveElasticsearchClientAutoConfiguration:
       Did not match:
@@ -1812,46 +1348,42 @@ Negative matches:
 
    ReactiveElasticsearchRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.client.elc.ReactiveElasticsearchClient' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'reactor.core.publisher.Mono' (OnClassCondition)
 
    ReactiveMultipartAutoConfiguration:
       Did not match:
-         - not a reactive web application (OnWebApplicationCondition)
-      Matched:
-         - @ConditionalOnClass found required classes 'org.springframework.http.codec.multipart.DefaultPartHttpMessageReader', 'org.springframework.web.reactive.config.WebFluxConfigurer' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.web.reactive.config.WebFluxConfigurer' (OnClassCondition)
 
    ReactiveOAuth2ClientAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.security.oauth2.client.registration.ClientRegistration' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'reactor.core.publisher.Flux' (OnClassCondition)
 
    ReactiveOAuth2ResourceServerAutoConfiguration:
       Did not match:
-         - not a reactive web application (OnWebApplicationCondition)
-      Matched:
-         - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity' (OnClassCondition)
+         - @ConditionalOnWebApplication did not find reactive web application classes (OnWebApplicationCondition)
 
-   ReactiveSecurityAutoConfiguration.SpringBootWebFluxSecurityConfiguration:
+   ReactiveSecurityAutoConfiguration:
       Did not match:
-         - not a reactive web application (OnWebApplicationCondition)
+         - @ConditionalOnClass did not find required class 'reactor.core.publisher.Flux' (OnClassCondition)
 
    ReactiveUserDetailsServiceAutoConfiguration:
       Did not match:
-         - AnyNestedCondition 0 matched 2 did not; NestedCondition on ReactiveUserDetailsServiceAutoConfiguration.RSocketEnabledOrReactiveWebApplication.ReactiveWebApplicationCondition not a reactive web application; NestedCondition on ReactiveUserDetailsServiceAutoConfiguration.RSocketEnabledOrReactiveWebApplication.RSocketSecurityEnabledCondition @ConditionalOnBean (types: org.springframework.messaging.rsocket.annotation.support.RSocketMessageHandler; SearchStrategy: all) did not find any beans of type org.springframework.messaging.rsocket.annotation.support.RSocketMessageHandler (ReactiveUserDetailsServiceAutoConfiguration.RSocketEnabledOrReactiveWebApplication)
+         - AnyNestedCondition 0 matched 2 did not; NestedCondition on ReactiveUserDetailsServiceAutoConfiguration.RSocketEnabledOrReactiveWebApplication.ReactiveWebApplicationCondition did not find reactive web application classes; NestedCondition on ReactiveUserDetailsServiceAutoConfiguration.RSocketEnabledOrReactiveWebApplication.RSocketSecurityEnabledCondition @ConditionalOnBean (types: org.springframework.messaging.rsocket.annotation.support.RSocketMessageHandler; SearchStrategy: all) did not find any beans of type org.springframework.messaging.rsocket.annotation.support.RSocketMessageHandler (ReactiveUserDetailsServiceAutoConfiguration.RSocketEnabledOrReactiveWebApplication)
       Matched:
          - @ConditionalOnClass found required class 'org.springframework.security.authentication.ReactiveAuthenticationManager' (OnClassCondition)
          - AnyNestedCondition 1 matched 2 did not; NestedCondition on ReactiveUserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.PasswordConfigured @ConditionalOnProperty (spring.security.user.password) did not find property 'password'; NestedCondition on ReactiveUserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.NameConfigured @ConditionalOnProperty (spring.security.user.name) did not find property 'name'; NestedCondition on ReactiveUserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.MissingAlternative @ConditionalOnMissingClass did not find unwanted classes 'org.springframework.security.oauth2.client.registration.ClientRegistrationRepository', 'org.springframework.security.oauth2.server.resource.introspection.ReactiveOpaqueTokenIntrospector' (ReactiveUserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured)
 
    ReactiveWebServerFactoryAutoConfiguration:
       Did not match:
-         - not a reactive web application (OnWebApplicationCondition)
-      Matched:
-         - @ConditionalOnClass found required class 'org.springframework.http.ReactiveHttpInputMessage' (OnClassCondition)
+         - @ConditionalOnWebApplication did not find reactive web application classes (OnWebApplicationCondition)
+
+   ReactorAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'reactor.core.publisher.Hooks' (OnClassCondition)
 
    ReactorLoadBalancerClientAutoConfiguration:
       Did not match:
-         - @ConditionalOnBean (types: org.springframework.cloud.client.loadbalancer.reactive.ReactiveLoadBalancer$Factory; SearchStrategy: all) did not find any beans of type org.springframework.cloud.client.loadbalancer.reactive.ReactiveLoadBalancer$Factory (OnBeanCondition)
-      Matched:
-         - @ConditionalOnClass found required class 'org.springframework.web.reactive.function.client.WebClient' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.web.reactive.function.client.WebClient' (OnClassCondition)
 
    RedisAutoConfiguration:
       Did not match:
@@ -1863,7 +1395,7 @@ Negative matches:
 
    RedisReactiveAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.connection.ReactiveRedisConnectionFactory' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'reactor.core.publisher.Flux' (OnClassCondition)
 
    RedisRepositoriesAutoConfiguration:
       Did not match:
@@ -1919,15 +1451,9 @@ Negative matches:
       Did not match:
          - @ConditionalOnClass did not find required class 'org.springframework.session.Session' (OnClassCondition)
 
-   SimpleReactiveDiscoveryClientAutoConfiguration.HealthConfiguration:
+   SimpleReactiveDiscoveryClientAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.boot.actuate.health.ReactiveHealthIndicator' (OnClassCondition)
-
-   SimpleUrlHandlerMappingGlobalCorsAutoConfiguration:
-      Did not match:
-         - @ConditionalOnProperty (spring.cloud.gateway.globalcors.add-to-simple-url-handler-mapping) did not find property 'spring.cloud.gateway.globalcors.add-to-simple-url-handler-mapping' (OnPropertyCondition)
-      Matched:
-         - @ConditionalOnClass found required class 'org.springframework.web.reactive.handler.SimpleUrlHandlerMapping' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.web.reactive.function.client.WebClient' (OnClassCondition)
 
    SpringApplicationAdminJmxAutoConfiguration:
       Did not match:
@@ -1987,11 +1513,13 @@ Negative matches:
          - found 'session' scope (OnWebApplicationCondition)
          - AnyNestedCondition 1 matched 2 did not; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.PasswordConfigured @ConditionalOnProperty (spring.security.user.password) did not find property 'password'; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.NameConfigured @ConditionalOnProperty (spring.security.user.name) did not find property 'name'; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.MissingAlternative @ConditionalOnMissingClass did not find unwanted classes 'org.springframework.security.oauth2.client.registration.ClientRegistrationRepository', 'org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector', 'org.springframework.security.saml2.provider.service.registration.RelyingPartyRegistrationRepository' (UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured)
 
+   WebClientAutoConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.springframework.web.reactive.function.client.WebClient' (OnClassCondition)
+
    WebFluxAutoConfiguration:
       Did not match:
-         - not a reactive web application (OnWebApplicationCondition)
-      Matched:
-         - @ConditionalOnClass found required class 'org.springframework.web.reactive.config.WebFluxConfigurer' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.web.reactive.config.WebFluxConfigurer' (OnClassCondition)
 
    WebMvcAutoConfiguration#hiddenHttpMethodFilter:
       Did not match:
@@ -2019,9 +1547,7 @@ Negative matches:
 
    WebSessionIdResolverAutoConfiguration:
       Did not match:
-         - not a reactive web application (OnWebApplicationCondition)
-      Matched:
-         - @ConditionalOnClass found required classes 'org.springframework.web.server.session.WebSessionManager', 'reactor.core.publisher.Mono' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'reactor.core.publisher.Mono' (OnClassCondition)
 
    WebSocketMessagingAutoConfiguration:
       Did not match:
@@ -2029,9 +1555,7 @@ Negative matches:
 
    WebSocketReactiveAutoConfiguration:
       Did not match:
-         - not a reactive web application (OnWebApplicationCondition)
-      Matched:
-         - @ConditionalOnClass found required classes 'jakarta.servlet.Servlet', 'jakarta.websocket.server.ServerContainer' (OnClassCondition)
+         - @ConditionalOnWebApplication did not find reactive web application classes (OnWebApplicationCondition)
 
    WebSocketServletAutoConfiguration.JettyWebSocketConfiguration:
       Did not match:
@@ -2105,7 +1629,7 @@ Unconditional classes:
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="https://www.gradle.org">Gradle 9.3.1</a> at Feb 13, 2026, 9:13:25 AM</p>
+<a href="https://www.gradle.org">Gradle 9.3.1</a> at Feb 16, 2026, 1:25:32 PM</p>
 </div>
 </div>
 </body>
