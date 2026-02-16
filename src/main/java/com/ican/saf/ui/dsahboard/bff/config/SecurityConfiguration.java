@@ -4,6 +4,7 @@ import com.ican.saf.session.model.OAuth2TokenResponse;
 import com.ican.saf.ui.dsahboard.bff.modal.SSOAuthenticationToken;
 import com.ican.saf.ui.dsahboard.bff.modal.UsernamePasswordAuthenticationModuleToken;
 import com.ican.saf.ui.dsahboard.bff.security.OAuth2Service;
+import com.ican.saf.ui.dsahboard.bff.security.ValidationType;
 import com.ican.saf.ui.dsahboard.bff.spi.model.RouteTransformer;
 import com.ican.saf.ui.dsahboard.bff.web.AuthService;
 import lombok.SneakyThrows;
@@ -84,7 +85,7 @@ public class SecurityConfiguration {
 
         var routeTransformer = moduleToken.getRouteTransformer();
 
-        var tokenResponse = oAuth2Service.login(userName, password);
+        var tokenResponse = oAuth2Service.login(userName, password, "password", ValidationType.SSO);
 
         if(null == tokenResponse || null != tokenResponse.getError() ){
             throw new AuthenticationServiceException("Failure during system entry. Please try again.");

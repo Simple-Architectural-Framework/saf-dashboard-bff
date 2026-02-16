@@ -43,6 +43,12 @@ const login = async (): Promise<void> => {
 
         if (!response.ok) {
             throw new Error(`Login failed: ${response.statusText}`);
+        } else {
+          const data = await response.json();
+          if (data.token) {
+            localStorage.setItem('authToken', data.token);
+            await router.push('/home');
+          }
         }
 
     } catch (err: unknown) {

@@ -4,7 +4,7 @@ import Login from './components/Login.vue'
 
 <template>
   <div>
-    <Login msg="SAF Login Screen" />
+    <!-- <Login msg="SAF Login Screen" /> -->
   </div>
 </template>
 
