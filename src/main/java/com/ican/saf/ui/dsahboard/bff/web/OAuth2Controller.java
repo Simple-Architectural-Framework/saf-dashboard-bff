@@ -5,12 +5,14 @@ import com.ican.saf.session.model.AuthenticationResponse;
 import com.ican.saf.session.model.User;
 import com.ican.saf.ui.dsahboard.bff.gateway.SimpleRouteTransformer;
 import com.ican.saf.ui.dsahboard.bff.modal.UsernamePasswordAuthenticationModuleToken;
+import com.ican.saf.ui.dsahboard.bff.properties.SSOProperties;
 import com.ican.saf.ui.dsahboard.bff.spi.model.RouteTransformer;
 import com.ican.saf.ui.dsahboard.bff.util.AuthenticationUtils;
 import com.ican.saf.ui.dsahboard.bff.util.SessionUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,6 +21,7 @@ import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.function.RouterFunction;
 import org.springframework.web.servlet.function.ServerResponse;
@@ -27,6 +30,8 @@ import java.util.Locale;
 import java.util.UUID;
 
 @Controller
+@RequestMapping("/auth")
+@EnableConfigurationProperties(SSOProperties.class)
 public class OAuth2Controller {
 
     private final RouterFunction<ServerResponse> routeLocator;
@@ -34,7 +39,7 @@ public class OAuth2Controller {
     private final AuthService authService;
     private final Environment env;
 
-    @Value("${saf.dashboard.apiKey}")
+    @Value("${saf.dashboard.api-key}")
     private String apiKey;
 
     @Value("${saf.dashboard.applicationId}")
