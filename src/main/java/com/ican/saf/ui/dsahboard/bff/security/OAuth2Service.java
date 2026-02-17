@@ -1,6 +1,6 @@
 package com.ican.saf.ui.dsahboard.bff.security;
 
-import com.ican.saf.session.model.AuthenticationServiceResponse;
+import com.ican.saf.session.model.OAuth2TokenResponse;
 import com.ican.saf.ui.dsahboard.bff.crypto.StringEncryptorDesede;
 import com.ican.saf.ui.dsahboard.bff.spi.client.ClientHelper;
 import org.slf4j.Logger;
@@ -44,8 +44,8 @@ public class OAuth2Service {
         this.stringEncryptorDesede = stringEncryptorDesede;
     }
 
-    public AuthenticationServiceResponse login(String username, String password,
-                                               String grantType, ValidationType validationType) {
+    public OAuth2TokenResponse login(String username, String password,
+                                     String grantType, ValidationType validationType) {
         try {
             var formData = new LinkedMultiValueMap<String, Object>();
             formData.add("username", username);
@@ -64,7 +64,7 @@ public class OAuth2Service {
                     .accept(org.springframework.http.MediaType.APPLICATION_JSON)
                     .body(formData)
                     .retrieve()
-                    .body(AuthenticationServiceResponse.class);
+                    .body(OAuth2TokenResponse.class);
         } catch (Exception e) {
             logger.error("Failure during system entry");
             throw new AuthenticationServiceException("Failure during system entry. Please try again later.", e);

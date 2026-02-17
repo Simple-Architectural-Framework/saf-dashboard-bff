@@ -1,6 +1,5 @@
 package com.ican.saf.ui.dsahboard.bff.config;
 
-import com.ican.saf.session.model.OAuth2TokenResponse;
 import com.ican.saf.ui.dsahboard.bff.modal.SSOAuthenticationToken;
 import com.ican.saf.ui.dsahboard.bff.modal.UsernamePasswordAuthenticationModuleToken;
 import com.ican.saf.ui.dsahboard.bff.security.OAuth2Service;
@@ -102,27 +101,6 @@ public class SecurityConfiguration {
             }
             return authorizeUser(authentication, routeTransformer, userName, accessToken, password, null);
         }
-
-
-
-//        AuthenticationServiceResponse authenticationServiceResponse = authService.callLoginService(userName, password, "password", ValidationType.PASSWORD);
-//
-//        if(null == authenticationServiceResponse || null != authenticationServiceResponse.getError()){
-//            throw new AuthenticationServiceException("Failure during system entry. Please try again.");
-//        } else {
-//            var accessToken = authenticationServiceResponse.getAccessToken();
-//
-//            if(!(authentication instanceof SSOAuthenticationToken)){
-//                try{
-//                    var validateResponse = authService.validateUser(routeTransformer, userName, null, accessToken, webSession);
-//                    return validateResponse.isSuccess() ? authorizeUser(authentication, routeTransformer, userName, accessToken, password, null) : null;
-//
-//                } catch (Exception e) {
-//                    throw new BadCredentialsException("Invalid credentials");
-//                }
-//            }
-//            return authorizeUser(authentication, routeTransformer, userName, accessToken, password, null);
-//        }
     }
 
     private UsernamePasswordAuthenticationToken authorizeUser(Authentication authentication, RouteTransformer routeTransformer,
