@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router';
 
 defineProps<{
   msg: string
@@ -14,7 +15,7 @@ interface Post {
 const posts = ref<Post[]>([]);
 const isLoading = ref<boolean>(true);
 const error = ref<string | null>(null);
-
+const router = useRouter();
 
 const login = async (): Promise<void> => {
     const userField = document.getElementById('userNameTextBox') as HTMLInputElement;
@@ -47,7 +48,7 @@ const login = async (): Promise<void> => {
           const data = await response.json();
           // if (data.token) {
           //   localStorage.setItem('authToken', data.token);
-          //   await router.push('/home');
+            await router.push('/home');
           // }
         }
 
@@ -59,7 +60,7 @@ const login = async (): Promise<void> => {
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <h1>SAF Login Screen</h1>
   <div>
     <input
       id="userNameTextBox"

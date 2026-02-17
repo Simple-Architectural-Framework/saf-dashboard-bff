@@ -1,22 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  // history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory('/saf-dashboard-bff/api'),
   routes: [
-    // {
-    //   path: '/saf-dashboard-bff',
-    //   redirect: '/login'
-    // },
-    // {
-    //   path: '/home',
-    //   name: 'Home',
-    //   component: () => import('../components/Home.vue')
-    // },
-    // {
-    //   path: '/login',
-    //   name: 'Login',
-    //   component: () => import('../components/Login.vue')
-    // }
+    {
+      path: '/',
+      redirect: '/login'
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: () => import('../components/Login.vue')
+    },
+    {
+      path: '/home',
+      name: 'Home',
+      component: () => import('../components/Home.vue')
+    }
   ],
 })
 

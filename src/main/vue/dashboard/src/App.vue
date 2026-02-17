@@ -3,9 +3,7 @@ import Login from './components/Login.vue'
 </script>
 
 <template>
-  <div>
-    <Login msg="SAF Login Screen" />
-  </div>
+    <RouterView />
 </template>
 
 <style scoped></style>
