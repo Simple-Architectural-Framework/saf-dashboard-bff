@@ -28,6 +28,8 @@ import org.springframework.security.authentication.CredentialsExpiredException;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestClient;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
@@ -65,12 +67,18 @@ public class AuthService {
 
     private final GatewayMvcProperties gatewayProperties;
     private final StringEncryptorDesede stringEncryptorDesede;
+    private final RestClient restClient;
 
     private final Logger logger = LoggerFactory.getLogger(AuthService.class);
 
-    public AuthService(GatewayMvcProperties gatewayProperties, StringEncryptorDesede stringEncryptorDesede){
+    public AuthService(
+            GatewayMvcProperties gatewayProperties,
+            StringEncryptorDesede stringEncryptorDesede,
+            RestClient restClient
+    ){
         this.gatewayProperties = gatewayProperties;
         this.stringEncryptorDesede = stringEncryptorDesede;
+        this.restClient = restClient;
     }
 
     public OAuth2TokenResponse callLoginService(String userName, String password,
@@ -133,8 +141,9 @@ public class AuthService {
 
         if(validateUserUrl.isEmpty()) throw new AuthenticationServiceException("validateUserUrl is empty");
 
-        return getClientInstance(validateUserUrl.get())
+        return restClient
                 .get()
+                .uri(validateUserUrl.get())
                 .acceptCharset(StandardCharsets.UTF_8)
                 .headers(httpHeaders -> httpHeaders.addAll(getHeaders(accessToken, additionalHeaders)))
                 .retrieve()
@@ -169,6 +178,43 @@ public class AuthService {
                     return true;
                 })
                 .body(new ParameterizedTypeReference<>() {});
+
+//        return getClientInstance(validateUserUrl.get())
+//                .get()
+//                .acceptCharset(StandardCharsets.UTF_8)
+//                .headers(httpHeaders -> httpHeaders.addAll(getHeaders(accessToken, additionalHeaders)))
+//                .retrieve()
+//                .onStatus(HttpStatusCode::is5xxServerError, ((request, response) -> {
+//                    var mapper = new ObjectMapper();
+//                    BaseResponse<String> errorBody = mapper.readValue(response.getBody(),
+//                            new TypeReference<>() {});
+//
+//                    var info = Objects.requireNonNull(errorBody.getError());
+//                    logger.warn("validate user failed\r\n {}:{}", info.getMessage(), info.getDetailedMessage());
+//
+//                    var splittedString = info.getMessage().split(":");
+//
+//                    if(splittedString[0].equalsIgnoreCase("PASSWORD_EXPIRED")){
+//                        session.setAttribute("changePasswordSavedData", new ChangePasswordSavedData(accessToken, userName, taxNumber));
+//                        throw new CredentialsExpiredException(splittedString[1]);
+//                    } else if(splittedString[0].equalsIgnoreCase("USER_STATUS_ERROR")){
+//                        session.setAttribute("changePasswordSavedData", new ChangePasswordSavedData(accessToken, userName, taxNumber));
+//                        throw new CredentialsFirstLoginException(splittedString[1]);
+//                    }
+//                    throw new RuntimeException("Internal Server Error");
+//                }))
+//                .onStatus( response -> {
+//                    if(!response.getStatusCode().is2xxSuccessful()) {
+//                        ObjectMapper mapper = new ObjectMapper();
+//                        var errorBody = mapper.readValue(response.getBody(), BaseResponse.class);
+//
+//                        var errorMessage = (errorBody.getError().getDetailedMessage() == null || errorBody.getError().getDetailedMessage().isEmpty()) ?
+//                                errorBody.getError().getMessage() : errorBody.getError().getDetailedMessage();
+//                        throw new AuthenticationServiceException(errorMessage);
+//                    }
+//                    return true;
+//                })
+//                .body(new ParameterizedTypeReference<>() {});
 
     }
 
