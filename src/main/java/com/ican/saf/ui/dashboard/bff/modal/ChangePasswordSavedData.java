@@ -1,4 +1,4 @@
-package com.ican.saf.ui.dsahboard.bff.modal;
+package com.ican.saf.ui.dashboard.bff.modal;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,11 +1,11 @@
-package com.ican.saf.ui.dsahboard.bff.config;
+package com.ican.saf.ui.dashboard.bff.config;
 
-import com.ican.saf.ui.dsahboard.bff.modal.SSOAuthenticationToken;
-import com.ican.saf.ui.dsahboard.bff.modal.UsernamePasswordAuthenticationModuleToken;
-import com.ican.saf.ui.dsahboard.bff.security.OAuth2Service;
-import com.ican.saf.ui.dsahboard.bff.security.ValidationType;
-import com.ican.saf.ui.dsahboard.bff.spi.model.RouteTransformer;
-import com.ican.saf.ui.dsahboard.bff.web.AuthService;
+import com.ican.saf.ui.dashboard.bff.modal.SSOAuthenticationToken;
+import com.ican.saf.ui.dashboard.bff.modal.UsernamePasswordAuthenticationModuleToken;
+import com.ican.saf.ui.dashboard.bff.security.OAuth2Service;
+import com.ican.saf.ui.dashboard.bff.security.ValidationType;
+import com.ican.saf.ui.dashboard.bff.spi.model.RouteTransformer;
+import com.ican.saf.ui.dashboard.bff.web.AuthService;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

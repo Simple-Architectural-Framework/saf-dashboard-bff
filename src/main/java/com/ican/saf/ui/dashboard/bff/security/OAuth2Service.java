@@ -1,8 +1,8 @@
-package com.ican.saf.ui.dsahboard.bff.security;
+package com.ican.saf.ui.dashboard.bff.security;
 
 import com.ican.saf.session.model.OAuth2TokenResponse;
-import com.ican.saf.ui.dsahboard.bff.crypto.StringEncryptorDesede;
-import com.ican.saf.ui.dsahboard.bff.spi.client.ClientHelper;
+import com.ican.saf.ui.dashboard.bff.crypto.StringEncryptorDesede;
+import com.ican.saf.ui.dashboard.bff.spi.client.ClientHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

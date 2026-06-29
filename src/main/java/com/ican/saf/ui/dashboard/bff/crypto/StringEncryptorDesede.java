@@ -1,4 +1,4 @@
-package com.ican.saf.ui.dsahboard.bff.crypto;
+package com.ican.saf.ui.dashboard.bff.crypto;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;

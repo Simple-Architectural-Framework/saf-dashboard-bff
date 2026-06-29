@@ -1,6 +1,6 @@
-package com.ican.saf.ui.dsahboard.bff.spi.client;
+package com.ican.saf.ui.dashboard.bff.spi.client;
 
-import com.ican.saf.ui.dsahboard.bff.gateway.SimpleRouteTransformer;
+import com.ican.saf.ui.dashboard.bff.gateway.SimpleRouteTransformer;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClient;

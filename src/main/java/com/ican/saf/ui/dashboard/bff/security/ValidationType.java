@@ -1,4 +1,4 @@
-package com.ican.saf.ui.dsahboard.bff.security;
+package com.ican.saf.ui.dashboard.bff.security;
 
 public enum ValidationType {
     PASSWORD("PWD"),

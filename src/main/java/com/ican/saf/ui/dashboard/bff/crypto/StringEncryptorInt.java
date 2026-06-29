@@ -1,4 +1,4 @@
-package com.ican.saf.ui.dsahboard.bff.crypto;
+package com.ican.saf.ui.dashboard.bff.crypto;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

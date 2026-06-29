@@ -1,6 +1,6 @@
-package com.ican.saf.ui.dsahboard.bff.modal;
+package com.ican.saf.ui.dashboard.bff.modal;
 
-import com.ican.saf.ui.dsahboard.bff.spi.model.RouteTransformer;
+import com.ican.saf.ui.dashboard.bff.spi.model.RouteTransformer;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 

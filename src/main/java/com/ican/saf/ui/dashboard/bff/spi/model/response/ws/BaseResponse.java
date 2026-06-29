@@ -1,4 +1,4 @@
-package com.ican.saf.ui.dsahboard.bff.spi.model.response.ws;
+package com.ican.saf.ui.dashboard.bff.spi.model.response.ws;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.ican.saf.exception.ExceptionInfo;

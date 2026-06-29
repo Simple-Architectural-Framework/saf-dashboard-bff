@@ -1,6 +1,6 @@
-package com.ican.saf.ui.dsahboard.bff.gateway;
+package com.ican.saf.ui.dashboard.bff.gateway;
 
-import com.ican.saf.ui.dsahboard.bff.spi.model.RouteTransformer;
+import com.ican.saf.ui.dashboard.bff.spi.model.RouteTransformer;
 import jakarta.servlet.http.HttpSession;
 import lombok.NoArgsConstructor;
 import org.slf4j.Logger;

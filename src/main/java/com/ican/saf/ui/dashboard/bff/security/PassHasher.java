@@ -1,4 +1,4 @@
-package com.ican.saf.ui.dsahboard.bff.security;
+package com.ican.saf.ui.dashboard.bff.security;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

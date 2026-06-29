@@ -1,4 +1,4 @@
-package com.ican.saf.ui.dsahboard.bff.properties;
+package com.ican.saf.ui.dashboard.bff.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

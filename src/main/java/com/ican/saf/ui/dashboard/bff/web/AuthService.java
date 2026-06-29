@@ -1,4 +1,4 @@
-package com.ican.saf.ui.dsahboard.bff.web;
+package com.ican.saf.ui.dashboard.bff.web;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -6,14 +6,15 @@ import com.ican.saf.exception.CredentialsFirstLoginException;
 import com.ican.saf.session.model.AuthenticationDetail;
 import com.ican.saf.session.model.OAuth2TokenResponse;
 import com.ican.saf.session.model.UserDTO;
-import com.ican.saf.ui.dsahboard.bff.crypto.StringEncryptorDesede;
-import com.ican.saf.ui.dsahboard.bff.crypto.StringEncryptorInt;
-import com.ican.saf.ui.dsahboard.bff.modal.*;
-import com.ican.saf.ui.dsahboard.bff.security.ValidationType;
-import com.ican.saf.ui.dsahboard.bff.spi.client.ClientHelper;
-import com.ican.saf.ui.dsahboard.bff.spi.model.RouteTransformer;
-import com.ican.saf.ui.dsahboard.bff.spi.model.response.ws.BaseResponse;
-import com.ican.saf.ui.dsahboard.bff.util.SafWebUtils;
+import com.ican.saf.ui.dashboard.bff.crypto.StringEncryptorDesede;
+import com.ican.saf.ui.dashboard.bff.crypto.StringEncryptorInt;
+import com.ican.saf.ui.dashboard.bff.modal.*;
+import com.ican.saf.ui.dashboard.bff.modal.*;
+import com.ican.saf.ui.dashboard.bff.security.ValidationType;
+import com.ican.saf.ui.dashboard.bff.spi.client.ClientHelper;
+import com.ican.saf.ui.dashboard.bff.spi.model.RouteTransformer;
+import com.ican.saf.ui.dashboard.bff.spi.model.response.ws.BaseResponse;
+import com.ican.saf.ui.dashboard.bff.util.SafWebUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.slf4j.Logger;
@@ -28,7 +29,6 @@ import org.springframework.security.authentication.CredentialsExpiredException;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestClient;
 
 import java.nio.charset.StandardCharsets;
@@ -36,8 +36,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-import static com.ican.saf.ui.dsahboard.bff.spi.client.ClientHelper.getClientInstance;
-import static com.ican.saf.ui.dsahboard.bff.spi.client.ClientHelper.getHeaders;
+import static com.ican.saf.ui.dashboard.bff.spi.client.ClientHelper.getHeaders;
 
 @Service
 public class AuthService {

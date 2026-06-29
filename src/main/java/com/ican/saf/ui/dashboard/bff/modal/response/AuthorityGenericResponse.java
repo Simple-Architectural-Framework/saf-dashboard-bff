@@ -1,4 +1,4 @@
-package com.ican.saf.ui.dsahboard.bff.modal.response;
+package com.ican.saf.ui.dashboard.bff.modal.response;
 
 import java.io.Serial;
 import java.io.Serializable;

@@ -1,4 +1,4 @@
-package com.ican.saf.ui.dsahboard.bff.spi.model;
+package com.ican.saf.ui.dashboard.bff.spi.model;
 
 import org.springframework.cloud.gateway.server.mvc.config.GatewayMvcProperties;
 

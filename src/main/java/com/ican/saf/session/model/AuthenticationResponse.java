@@ -1,6 +1,6 @@
 package com.ican.saf.session.model;
 
-import com.ican.saf.ui.dsahboard.bff.util.AuthenticationUtils;
+import com.ican.saf.ui.dashboard.bff.util.AuthenticationUtils;
 import org.springframework.security.core.Authentication;
 
 import java.util.List;

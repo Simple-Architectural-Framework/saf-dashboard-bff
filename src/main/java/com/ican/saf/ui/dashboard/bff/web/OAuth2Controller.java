@@ -1,14 +1,14 @@
-package com.ican.saf.ui.dsahboard.bff.web;
+package com.ican.saf.ui.dashboard.bff.web;
 
 import com.ican.saf.session.model.AuthenticationDetail;
 import com.ican.saf.session.model.AuthenticationResponse;
 import com.ican.saf.session.model.User;
-import com.ican.saf.ui.dsahboard.bff.gateway.SimpleRouteTransformer;
-import com.ican.saf.ui.dsahboard.bff.modal.UsernamePasswordAuthenticationModuleToken;
-import com.ican.saf.ui.dsahboard.bff.properties.SSOProperties;
-import com.ican.saf.ui.dsahboard.bff.spi.model.RouteTransformer;
-import com.ican.saf.ui.dsahboard.bff.util.AuthenticationUtils;
-import com.ican.saf.ui.dsahboard.bff.util.SessionUtils;
+import com.ican.saf.ui.dashboard.bff.gateway.SimpleRouteTransformer;
+import com.ican.saf.ui.dashboard.bff.modal.UsernamePasswordAuthenticationModuleToken;
+import com.ican.saf.ui.dashboard.bff.properties.SSOProperties;
+import com.ican.saf.ui.dashboard.bff.spi.model.RouteTransformer;
+import com.ican.saf.ui.dashboard.bff.util.AuthenticationUtils;
+import com.ican.saf.ui.dashboard.bff.util.SessionUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Value;

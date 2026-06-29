@@ -1,4 +1,4 @@
-package com.ican.saf.ui.dsahboard.bff.config;
+package com.ican.saf.ui.dashboard.bff.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
