@@ -14,12 +14,16 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.context.SecurityContextImpl;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,7 +34,8 @@ import java.util.Locale;
 import java.util.UUID;
 
 @Controller
-@RequestMapping("/auth")
+//@RequestMapping("/auth")
+@RequestMapping("/")
 @EnableConfigurationProperties(SSOProperties.class)
 public class OAuth2Controller {
 
@@ -53,6 +58,39 @@ public class OAuth2Controller {
         this.authenticationManager = authenticationManager;
         this.authService = authService;
         this.env = env;
+    }
+
+    @GetMapping(value = "login", produces = "application/json; charset=utf-8")
+    public ResponseEntity<String> oauth2Login(@AuthenticationPrincipal OAuth2User principal){
+        if(principal == null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Resource not found!");
+        }
+        //Extract the user's name or attributes provided by Authentik
+        String name = principal.getAttribute("name");
+        String email = principal.getAttribute("email");
+        return ResponseEntity.ok("Hello " + name + "! Your email is: " +  email);
+    }
+
+    @GetMapping(value = "login/oauth2/code/authentik", produces = "application/json; charset=utf-8")
+    public ResponseEntity<String> oauth2Code(@AuthenticationPrincipal OAuth2User principal){
+        if(principal == null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Resource not found!");
+        }
+        //Extract the user's name or attributes provided by Authentik
+        String name = principal.getAttribute("name");
+        String email = principal.getAttribute("email");
+        return ResponseEntity.ok("Hello " + name + "! Your email is: " +  email);
+    }
+
+    @GetMapping(value = "home", produces = "application/json; charset=utf-8")
+    public ResponseEntity<String> home(@AuthenticationPrincipal OAuth2User principal){
+        if(principal == null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Resource not found!");
+        }
+        //Extract the user's name or attributes provided by Authentik
+        String name = principal.getAttribute("name");
+        String email = principal.getAttribute("email");
+        return ResponseEntity.ok("Hello " + name + "! Your email is: " +  email);
     }
 
     @PostMapping(value = "login", produces = "application/json; charset=utf-8")

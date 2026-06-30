@@ -24,6 +24,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
+import org.springframework.security.oauth2.client.authentication.OAuth2LoginAuthenticationToken;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.header.writers.ReferrerPolicyHeaderWriter;
@@ -55,9 +57,9 @@ public class SecurityConfiguration {
                         .referrerPolicy(referrer -> referrer
                                 .policy(ReferrerPolicyHeaderWriter.ReferrerPolicy.NO_REFERRER)))
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/**").permitAll()
+                        .requestMatchers( "/", "/oauth2/**", "/login/**").permitAll()
+                        .requestMatchers("/index.html", "/assets/**", "/favicon.ico").permitAll()
                         .requestMatchers(HttpMethod.GET, "/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .exceptionHandling(ex -> ex
@@ -65,6 +67,15 @@ public class SecurityConfiguration {
                 )
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+                )
+                .oauth2Login(oauth2 -> oauth2
+//                        .defaultSuccessUrl("/home", true))
+//                        .defaultSuccessUrl("/", true))
+                        // Crucial: Forces the browser to navigate to your Vue router path.
+                        // Spring automatically prefixes your context path (/saf-dashboard-bff/api)
+                        .successHandler((request, response, authentication) -> {
+                            response.sendRedirect("/saf-dashboard-bff/api/?loginSuccess=true");
+                        })
                 )
                 .build();
     }
@@ -76,6 +87,20 @@ public class SecurityConfiguration {
     }
 
     private Authentication authenticate(Authentication authentication){
+
+        // 1. Check if the token belongs to the standard OAuth2/OIDC login flow
+        if (authentication instanceof OAuth2LoginAuthenticationToken) {
+            // Return null to tell Spring to skip this custom provider and
+            // let the default OAuth2LoginAuthenticationProvider handle it instead
+            var moduleToken = (OAuth2LoginAuthenticationToken)authentication;
+            var principal = moduleToken.getPrincipal();
+            var accessToken= moduleToken.getAccessToken();
+            var credentials = moduleToken.getCredentials();
+            var attrs = principal.getAuthorities();
+            return null;
+        }
+
+
         UsernamePasswordAuthenticationModuleToken moduleToken = (UsernamePasswordAuthenticationModuleToken) authentication;
         var userName = authentication.getPrincipal().toString();
         var credentials = authentication.getCredentials();
