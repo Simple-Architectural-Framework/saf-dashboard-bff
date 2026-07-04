@@ -24,7 +24,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.client.authentication.OAuth2LoginAuthenticationToken;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
@@ -57,8 +56,11 @@ public class SecurityConfiguration {
                         .referrerPolicy(referrer -> referrer
                                 .policy(ReferrerPolicyHeaderWriter.ReferrerPolicy.NO_REFERRER)))
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers( "/", "/oauth2/**", "/login/**").permitAll()
-                        .requestMatchers("/index.html", "/assets/**", "/favicon.ico").permitAll()
+                                .requestMatchers( "/", "/oauth2/**", "/login/**").permitAll()
+                                .requestMatchers("/index.html", "/assets/**", "/favicon.ico").permitAll()
+                                .requestMatchers("/user-info").authenticated()
+//                        .requestMatchers("/home").permitAll()
+//                        .requestMatchers("/redirect-auth-login").permitAll()
                         .requestMatchers(HttpMethod.GET, "/**").permitAll()
                         .anyRequest().authenticated()
                 )
@@ -74,7 +76,8 @@ public class SecurityConfiguration {
                         // Crucial: Forces the browser to navigate to your Vue router path.
                         // Spring automatically prefixes your context path (/saf-dashboard-bff/api)
                         .successHandler((request, response, authentication) -> {
-                            response.sendRedirect("/saf-dashboard-bff/api/?loginSuccess=true");
+//                            response.sendRedirect("/saf-dashboard-bff/api/?loginSuccess=true");
+                            response.sendRedirect("/saf-dashboard-bff/api/home?loginSuccess=true");
                         })
                 )
                 .build();

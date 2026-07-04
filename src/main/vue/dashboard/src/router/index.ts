@@ -27,7 +27,7 @@ const router = createRouter({
 })
 
 // Global interceptor to route the user without needing a backend forward controller
-router.beforeEach((to, from, next) => {
+/*router.beforeEach((to, from, next) => {
   const urlParams = new URLSearchParams(window.location.search);
   
   if (urlParams.get('loginSuccess') === 'true') {
@@ -42,7 +42,7 @@ router.beforeEach((to, from, next) => {
     next();
   }
 }
-)
+)*/
 
 
 

@@ -31,6 +31,7 @@ import org.springframework.web.servlet.function.RouterFunction;
 import org.springframework.web.servlet.function.ServerResponse;
 
 import java.util.Locale;
+import java.util.Map;
 import java.util.UUID;
 
 @Controller
@@ -91,6 +92,24 @@ public class OAuth2Controller {
         String name = principal.getAttribute("name");
         String email = principal.getAttribute("email");
         return ResponseEntity.ok("Hello " + name + "! Your email is: " +  email);
+    }
+
+    @GetMapping(value = "/user-info", produces = "application/json; charset=utf-8")
+    public ResponseEntity<?> getUserInfo(@AuthenticationPrincipal OAuth2User principal){
+        if(principal == null){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", "User is not authenticated"));
+        }
+
+        String name = principal.getAttribute("name");
+        String surName = principal.getAttribute("surname");
+        String email = principal.getAttribute("email");
+
+        return ResponseEntity.ok(Map.of(
+                "name", name != null ? name : "Unknown",
+                "surname", surName != null ? surName : "Unknown",
+                "email", email != null ? email : "No email"
+        ));
     }
 
     @PostMapping(value = "login", produces = "application/json; charset=utf-8")
