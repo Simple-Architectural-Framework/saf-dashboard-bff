@@ -20,6 +20,8 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.context.SecurityContextImpl;
+import org.springframework.security.oauth2.client.registration.ClientRegistration;
+import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.stereotype.Controller;
@@ -35,8 +37,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @Controller
-//@RequestMapping("/auth")
-@RequestMapping("/")
+@RequestMapping("/auth")
 @EnableConfigurationProperties(SSOProperties.class)
 public class OAuth2Controller {
 
@@ -44,6 +45,7 @@ public class OAuth2Controller {
     private final AuthenticationManager authenticationManager;
     private final AuthService authService;
     private final Environment env;
+    private final ClientRegistrationRepository clientRegistrationRepository;
 
     @Value("${saf.dashboard.api-key}")
     private String apiKey;
@@ -51,48 +53,61 @@ public class OAuth2Controller {
     @Value("${saf.dashboard.applicationId}")
     private String applicationId;
 
+    @Value("${saf.dashboard.authorizationUrl}")
+    private String authorizationUrl;
+
     @Value("${saf.dashboard.realm}")
     private String realm;
 
-    public OAuth2Controller(RouterFunction<ServerResponse> routeLocator, AuthenticationManager authenticationManager, AuthService authService, Environment env) {
+    public OAuth2Controller(RouterFunction<ServerResponse> routeLocator,
+                            AuthenticationManager authenticationManager,
+                            AuthService authService,
+                            ClientRegistrationRepository clientRegistrationRepository,
+                            Environment env
+    ) {
         this.routeLocator = routeLocator;
         this.authenticationManager = authenticationManager;
         this.authService = authService;
+        this.clientRegistrationRepository = clientRegistrationRepository;
         this.env = env;
     }
 
-    @GetMapping(value = "login", produces = "application/json; charset=utf-8")
-    public ResponseEntity<String> oauth2Login(@AuthenticationPrincipal OAuth2User principal){
-        if(principal == null){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Resource not found!");
+    @GetMapping(value = "/login", produces = "application/json; charset=utf-8")
+    public ResponseEntity<Map<String, String>> oauth2Login(){
+        ClientRegistration registration = clientRegistrationRepository.findByRegistrationId("authentik");
+
+        if(registration == null){
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Map.of("error", "Auhtentik client config not found!"));
         }
-        //Extract the user's name or attributes provided by Authentik
-        String name = principal.getAttribute("name");
-        String email = principal.getAttribute("email");
-        return ResponseEntity.ok("Hello " + name + "! Your email is: " +  email);
+
+        String authzUrl = authorizationUrl + registration.getRegistrationId();
+
+        return ResponseEntity.ok(Map.of("redirectUrl", authzUrl));
     }
 
-    @GetMapping(value = "login/oauth2/code/authentik", produces = "application/json; charset=utf-8")
-    public ResponseEntity<String> oauth2Code(@AuthenticationPrincipal OAuth2User principal){
-        if(principal == null){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Resource not found!");
-        }
-        //Extract the user's name or attributes provided by Authentik
-        String name = principal.getAttribute("name");
-        String email = principal.getAttribute("email");
-        return ResponseEntity.ok("Hello " + name + "! Your email is: " +  email);
-    }
+//    @GetMapping(value = "/login/oauth2/code/authentik", produces = "application/json; charset=utf-8")
+//    public ResponseEntity<String> oauth2Code(@AuthenticationPrincipal OAuth2User principal){
+//        if(principal == null){
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Resource not found!");
+//        }
+//        //Extract the user's name or attributes provided by Authentik
+//        String name = principal.getAttribute("name");
+//        String email = principal.getAttribute("email");
+//        return ResponseEntity.ok("Hello " + name + "! Your email is: " +  email);
+//    }
 
-    @GetMapping(value = "home", produces = "application/json; charset=utf-8")
-    public ResponseEntity<String> home(@AuthenticationPrincipal OAuth2User principal){
-        if(principal == null){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Resource not found!");
-        }
-        //Extract the user's name or attributes provided by Authentik
-        String name = principal.getAttribute("name");
-        String email = principal.getAttribute("email");
-        return ResponseEntity.ok("Hello " + name + "! Your email is: " +  email);
-    }
+//    @GetMapping(value = "/home", produces = "application/json; charset=utf-8")
+//    public ResponseEntity<String> home(@AuthenticationPrincipal OAuth2User principal){
+//        if(principal == null){
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Resource not found!");
+//        }
+//        //Extract the user's name or attributes provided by Authentik
+//        String name = principal.getAttribute("name");
+//        String email = principal.getAttribute("email");
+//        return ResponseEntity.ok("Hello " + name + "! Your email is: " +  email);
+//    }
 
     @GetMapping(value = "/user-info", produces = "application/json; charset=utf-8")
     public ResponseEntity<?> getUserInfo(@AuthenticationPrincipal OAuth2User principal){

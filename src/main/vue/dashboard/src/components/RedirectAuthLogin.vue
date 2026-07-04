@@ -83,17 +83,46 @@ const login = async(): Promise<void> => {
 
 
 <script lang="ts" setup>
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 
 defineProps<{
   msg: string
 }>()
 
-const login = (): void => {
+/*const login = (): void => {
   // Let Spring Boot initiate the secure authorization flow.
   // It handles state validation, code exchanges, and token generation on the server.
   window.location.href = '/saf-dashboard-bff/api/oauth2/authorization/authentik';
-};
+};*/
+
+
+  const loading = ref<boolean>(true);
+  const error = ref<string | null>(null);
+
+const login = async () : Promise<void> => {
+  try{
+    const response = await fetch('/saf-dashboard-bff/api/auth/login', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+    });
+
+    if(response.ok){
+      const body = await response.json();
+      if(body.redirectUrl){
+        window.location.href = body.redirectUrl;
+      }
+    } else {
+      throw new Error('Failed to login,');
+    }
+  }catch(err : any){
+      error.value = err.message || 'An error occurred';
+  }finally{
+    loading.value = false;
+  }
+}
 
 // Optional: Automatically trigger the login step when the component mounts 
 // so the user doesn't have to manually click the button.

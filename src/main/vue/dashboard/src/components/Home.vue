@@ -14,9 +14,9 @@
   const loading = ref<boolean>(true);
   const error = ref<string | null>(null);
   
-  onMounted(async () => {
+  onMounted(async () : Promise<void> => {
     try {
-      const response = await fetch('/saf-dashboard-bff/api/user-info', {
+      const response = await fetch('/saf-dashboard-bff/api/auth/user-info', {
         method: 'GET',
         headers: {
           'Accept': 'application/json'

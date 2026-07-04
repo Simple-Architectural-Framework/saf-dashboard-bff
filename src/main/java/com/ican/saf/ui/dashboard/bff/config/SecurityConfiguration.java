@@ -58,7 +58,8 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(authz -> authz
                                 .requestMatchers( "/", "/oauth2/**", "/login/**").permitAll()
                                 .requestMatchers("/index.html", "/assets/**", "/favicon.ico").permitAll()
-                                .requestMatchers("/user-info").authenticated()
+                                .requestMatchers("/auth/login").permitAll()
+                                .requestMatchers("/auth/user-info").authenticated()
 //                        .requestMatchers("/home").permitAll()
 //                        .requestMatchers("/redirect-auth-login").permitAll()
                         .requestMatchers(HttpMethod.GET, "/**").permitAll()
