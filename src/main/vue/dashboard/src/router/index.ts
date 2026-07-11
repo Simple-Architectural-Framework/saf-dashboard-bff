@@ -1,5 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
+import Login from '../components/Login.vue'
+import RedirectAuthLogin from '../components/RedirectAuthLogin.vue'
+import Home from '../components/Home.vue'
+
 const router = createRouter({
   // history: createWebHistory(import.meta.env.BASE_URL),
   history: createWebHistory('/saf-dashboard-bff/api'),
@@ -11,17 +15,20 @@ const router = createRouter({
     {
       path: '/login',
       name: 'Login',
-      component: () => import('../components/Login.vue')
+      // component: () => import('../components/Login.vue')
+      component: Login
     },
     {
       path: '/redirect-auth-login',
       name: 'RedirectAuthLogin',
-      component: () => import('../components/RedirectAuthLogin.vue')
+      // component: () => import('../components/RedirectAuthLogin.vue')
+      component: RedirectAuthLogin
     },
     {
       path: '/home',
       name: 'Home',
-      component: () => import('../components/Home.vue')
+      // component: () => import('../components/Home.vue')
+      component: Home
     }
   ],
 })

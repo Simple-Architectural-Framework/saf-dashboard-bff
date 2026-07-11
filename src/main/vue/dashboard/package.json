@@ -14,7 +14,11 @@
     "type-check": "vue-tsc --build"
   },
   "dependencies": {
+    "@primeuix/themes": "^2.0.3",
     "pinia": "^3.0.4",
+    "primeflex": "^4.0.0",
+    "primeicons": "^7.0.0",
+    "primevue": "^4.5.5",
     "vue": "^3.5.27",
     "vue-router": "^5.0.1"
   },

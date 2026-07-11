@@ -32,6 +32,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.function.RouterFunction;
 import org.springframework.web.servlet.function.ServerResponse;
 
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
@@ -119,11 +120,13 @@ public class OAuth2Controller {
         String name = principal.getAttribute("name");
         String surName = principal.getAttribute("surname");
         String email = principal.getAttribute("email");
+        List<String> groups = principal.getAttribute("groups");
 
         return ResponseEntity.ok(Map.of(
                 "name", name != null ? name : "Unknown",
                 "surname", surName != null ? surName : "Unknown",
-                "email", email != null ? email : "No email"
+                "email", email != null ? email : "No email",
+                "groups", groups != null ? groups : "No Groups"
         ));
     }
 

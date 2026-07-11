@@ -11,4 +11,6 @@ spring:
     name: saf-dashboard-bff
   main:
     web-application-type: servlet
-
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher

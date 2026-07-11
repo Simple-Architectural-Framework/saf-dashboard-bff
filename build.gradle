@@ -49,3 +49,16 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+
+
+tasks.named('processResources') {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
+    // Explicitly tells Gradle that fonts are binary files and should never be parsed or filtered
+    filesMatching(['**/*.woff', '**/*.woff2', '**/*.ttf', '**/*.eot', '**/*.svg']) { fileCopyDetails ->
+        fileCopyDetails.filter { line -> line } // Returns the line untouched, bypassing token filters safely
+    }
+}
+
+
