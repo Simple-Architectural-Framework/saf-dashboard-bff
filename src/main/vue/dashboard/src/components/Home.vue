@@ -80,7 +80,24 @@
             </template>
           </Card>
         </div>
-
+        <div v-if="hasRole('saf-dashboard-admin') || hasRole('saf-meeting-bff')" class="col-12 md:col-6 lg:col-4">
+          <Card class="border-blue">
+            <template #title>
+              <div class="flex align-items-center justify-content-between">
+                Meeting Board
+                <Tag value="Meeting" severity="info"/>
+              </div>
+            </template>
+            <template #content>
+              <p class="m-0">
+                meeting application
+              </p>
+            </template>
+            <template #footer>
+              <Button label="Launch Meeting Board" icon="pi pi-pencil" class="w-full" security="info"/>
+            </template>
+          </Card>
+        </div>
       </div>
   </div>
   <!-- <div class="home-container">
