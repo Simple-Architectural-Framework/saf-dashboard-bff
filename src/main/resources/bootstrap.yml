@@ -4,11 +4,11 @@ server:
     context-path: /saf-dashboard-bff/api
 
 spring:
+  application:
+    name: saf-dashboard-bff
   cloud:
     bootstrap:
       enabled: true
-  application:
-    name: saf-dashboard-bff
   main:
     web-application-type: servlet
   mvc:

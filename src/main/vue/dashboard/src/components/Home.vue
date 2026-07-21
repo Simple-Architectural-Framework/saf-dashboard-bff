@@ -47,6 +47,24 @@
   }
 
 
+  const launchRelatedBoard = async (appName : string) : Promise<void> => {
+      const response = await fetch(`/saf-dashboard-bff/api/auth/redirect-url?appName=${appName}`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if(!response.ok){
+        throw new Error('Failed to find related app url')
+      }
+
+      const data = await response.json();
+      if(data.url){
+        window.location.href=data.url
+      }
+  }
+
 </script>
 
 <template>
@@ -94,23 +112,19 @@
               </p>
             </template>
             <template #footer>
-              <Button label="Launch Meeting Board" icon="pi pi-pencil" class="w-full" security="info"/>
+              <Button 
+                label="Launch Meeting Board" 
+                icon="pi pi-pencil" 
+                class="w-full" 
+                security="info"
+                @click="launchRelatedBoard(`saf-meeting-bff`)"
+              />
             </template>
           </Card>
         </div>
       </div>
   </div>
-  <!-- <div class="home-container">
-    <h1>Dashboard</h1>
-    <div v-if="loading">Loading user profile...</div>
-    <div v-else-if="user">
-      <p>Hello <strong>{{ user.name }}</strong>!</p>
-      <p>Your email is: <strong>{{ user.email }}</strong></p>
-    </div>
-    <div v-else-if="error" class="error-msg">
-      {{ error }}
-    </div>
-  </div> -->
+
 </template>
 
 <style scoped>

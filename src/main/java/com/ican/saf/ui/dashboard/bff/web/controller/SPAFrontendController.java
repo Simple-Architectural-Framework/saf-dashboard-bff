@@ -1,4 +1,4 @@
-//package com.ican.saf.ui.dashboard.bff.web;
+//package com.ican.saf.ui.dashboard.bff.web.controller;
 //
 //import org.springframework.stereotype.Controller;
 //import org.springframework.web.bind.annotation.GetMapping;

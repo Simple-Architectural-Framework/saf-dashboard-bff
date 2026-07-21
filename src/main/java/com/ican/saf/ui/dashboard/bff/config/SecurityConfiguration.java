@@ -5,7 +5,7 @@ import com.ican.saf.ui.dashboard.bff.modal.UsernamePasswordAuthenticationModuleT
 import com.ican.saf.ui.dashboard.bff.security.OAuth2Service;
 import com.ican.saf.ui.dashboard.bff.security.ValidationType;
 import com.ican.saf.ui.dashboard.bff.spi.model.RouteTransformer;
-import com.ican.saf.ui.dashboard.bff.web.AuthService;
+import com.ican.saf.ui.dashboard.bff.web.service.AuthService;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

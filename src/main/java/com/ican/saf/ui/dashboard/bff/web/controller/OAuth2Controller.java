@@ -1,4 +1,4 @@
-package com.ican.saf.ui.dashboard.bff.web;
+package com.ican.saf.ui.dashboard.bff.web.controller;
 
 import com.ican.saf.session.model.AuthenticationDetail;
 import com.ican.saf.session.model.AuthenticationResponse;
@@ -9,6 +9,8 @@ import com.ican.saf.ui.dashboard.bff.properties.SSOProperties;
 import com.ican.saf.ui.dashboard.bff.spi.model.RouteTransformer;
 import com.ican.saf.ui.dashboard.bff.util.AuthenticationUtils;
 import com.ican.saf.ui.dashboard.bff.util.SessionUtils;
+import com.ican.saf.ui.dashboard.bff.web.service.AuthService;
+import com.ican.saf.ui.dashboard.bff.web.service.UrlService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,11 +26,7 @@ import org.springframework.security.oauth2.client.registration.ClientRegistratio
 import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.function.RouterFunction;
 import org.springframework.web.servlet.function.ServerResponse;
 
@@ -37,7 +35,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 
-@Controller
+@RestController
 @RequestMapping("/auth")
 @EnableConfigurationProperties(SSOProperties.class)
 public class OAuth2Controller {
@@ -45,6 +43,7 @@ public class OAuth2Controller {
     private final RouterFunction<ServerResponse> routeLocator;
     private final AuthenticationManager authenticationManager;
     private final AuthService authService;
+    private final UrlService urlService;
     private final Environment env;
     private final ClientRegistrationRepository clientRegistrationRepository;
 
@@ -63,12 +62,14 @@ public class OAuth2Controller {
     public OAuth2Controller(RouterFunction<ServerResponse> routeLocator,
                             AuthenticationManager authenticationManager,
                             AuthService authService,
+                            UrlService urlService,
                             ClientRegistrationRepository clientRegistrationRepository,
                             Environment env
     ) {
         this.routeLocator = routeLocator;
         this.authenticationManager = authenticationManager;
         this.authService = authService;
+        this.urlService = urlService;
         this.clientRegistrationRepository = clientRegistrationRepository;
         this.env = env;
     }
@@ -128,6 +129,17 @@ public class OAuth2Controller {
                 "email", email != null ? email : "No email",
                 "groups", groups != null ? groups : "No Groups"
         ));
+    }
+
+    @GetMapping(value = "/redirect-url", produces = "application/json; charset=utf-8")
+    public ResponseEntity<?> getRedirectUrl(@RequestParam String appName){
+        String appUrl = urlService.getRelatedUrl(appName);
+
+        return (appUrl != null) ?
+                ResponseEntity.ok(Map.of("url", appUrl))
+                :
+                ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(Map.of("error", "Url not found!"));
     }
 
     @PostMapping(value = "login", produces = "application/json; charset=utf-8")
