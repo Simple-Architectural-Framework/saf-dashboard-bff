@@ -5,6 +5,7 @@
 
 # build files
 build
+/build
 
 # User-specific files
 .idea/**/workspace.xml
