@@ -108,26 +108,6 @@ public class OAuth2Controller {
 //        return ResponseEntity.ok("Hello " + name + "! Your email is: " +  email);
 //    }
 
-    @GetMapping(value = "/user-info", produces = "application/json; charset=utf-8")
-    public ResponseEntity<?> getUserInfo(@AuthenticationPrincipal OAuth2User principal){
-        if(principal == null){
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body(Map.of("error", "User is not authenticated"));
-        }
-
-        String name = principal.getAttribute("name");
-        String surName = principal.getAttribute("surname");
-        String email = principal.getAttribute("email");
-        List<String> groups = principal.getAttribute("groups");
-
-        return ResponseEntity.ok(Map.of(
-                "name", name != null ? name : "Unknown",
-                "surname", surName != null ? surName : "Unknown",
-                "email", email != null ? email : "No email",
-                "groups", groups != null ? groups : "No Groups"
-        ));
-    }
-
     @GetMapping(value = "/redirect-url", produces = "application/json; charset=utf-8")
     public ResponseEntity<?> getRedirectUrl(@RequestParam String appName){
         String appUrl = urlService.getRelatedUrl(appName);

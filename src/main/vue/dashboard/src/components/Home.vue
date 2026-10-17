@@ -35,7 +35,8 @@
       icon: 'pi pi-book',
       accent: 'indigo',
       roles: ['saf-dashboard-admin', 'saf-s1000d-bff'],
-      actionLabel: 'Launch Editor'
+      actionLabel: 'Launch Editor',
+      appName: 'saf-s1000d-bff'
     },
     {
       title: 'Meeting Module',
@@ -97,8 +98,10 @@
 
   const launchRelatedBoard = async (appName : string) : Promise<void> => {
     launching.value = appName;
+    console.log("appName is: " +  appName);
+    console.log("appName after encodeURIComponent func: " + encodeURIComponent(appName));
     try {
-      const response = await fetch(`/saf-dashboard-bff/api/auth/redirect-url?appName=${appName}`, {
+      const response = await fetch(`/saf-dashboard-bff/api/auth/redirect-url?appName=${encodeURIComponent(appName)}`, {
         method: 'GET',
         headers: {
           'Accept': 'application/json'
@@ -109,10 +112,14 @@
         throw new Error('Failed to find related app url')
       }
 
-      const data = await response.json();
-      if(data.url){
-        window.location.href=data.url
-      }
+      // const data = await response.json();
+      const { url } = await response.json();
+      const target = new URL(url, window.location.origin);
+      window.location.assign(target.href);
+
+      // if(data.url){
+      //   window.location.href=data.url
+      // }
     } finally {
       launching.value = null;
     }

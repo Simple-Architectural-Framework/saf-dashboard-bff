@@ -33,6 +33,7 @@ dependencyManagement {
 dependencies {
     implementation 'com.ican.saf.lib:saf-common-spring-boot-starter'
     implementation 'com.ican.saf.lib:saf-lib-exception-util'
+    implementation 'com.ican.saf.lib:saf-lib-common-util'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
