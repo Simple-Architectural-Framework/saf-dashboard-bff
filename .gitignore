@@ -4,7 +4,7 @@
 #     https://www.atlassian.com/git/tutorials/saving-changes/gitignore
 
 # build files
-build/
+#build/
 #/build
 
 # User-specific files
@@ -65,7 +65,7 @@ dist/
 *.log
 
 # Package files
-*.jar
+#*.jar
 
 # Maven
 target/
