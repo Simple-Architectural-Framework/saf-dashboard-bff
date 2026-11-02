@@ -4,8 +4,8 @@
 #     https://www.atlassian.com/git/tutorials/saving-changes/gitignore
 
 # build files
-build
-/build
+#build
+#/build
 
 # User-specific files
 .idea/**/workspace.xml
