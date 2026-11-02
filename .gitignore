@@ -4,7 +4,7 @@
 #     https://www.atlassian.com/git/tutorials/saving-changes/gitignore
 
 # build files
-#build
+build/
 #/build
 
 # User-specific files
@@ -58,9 +58,6 @@ atlassian-ide-plugin.xml
 node_modules/
 dist/
 
-# Compiled Java class files
-*.class
-
 # Compiled Python bytecode
 *.py[cod]
 
@@ -72,7 +69,6 @@ dist/
 
 # Maven
 target/
-dist/
 
 # JetBrains IDE
 .idea/
@@ -90,9 +86,6 @@ modules.xml
 ### Java ###
 # Compiled class file
 *.class
-
-# Log file
-*.log
 
 # Unit test reports
 TEST*.xml

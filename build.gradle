@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.ican.saf'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 description = 'saf-dashboard-bff'
 
 java {
